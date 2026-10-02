@@ -1,0 +1,39 @@
+# CareBravo
+
+> CareBravo® is more than software for Medicaid home and community-based services (HCBS) agencies: the nine jobs of an agency — scheduling and payroll, compliance, billing, communication, documentation, referrals and reputation, hiring, retention, training — done on one record, on the Autonomous Care OS®. Built by Caryfy AI in Georgia first. 130+ agencies run on CareBravo. Listed by Georgia DCH as an EVV vendor.
+
+Pricing is three plans, each including everything below it. CareBravo Core: $15 per active client per month. CareBravo Autonomous: 1.97% of eligible billed revenue at the founding rate for the next 50 agencies, then 2.47%. Managed Billing: 4.47% of eligible billed revenue, with a written guarantee that at least 99% of eligible original claims are prepared and transmitted without an error we cause (payer adjudication expressly not guaranteed). The floor on every plan: $250 a month, no seats, no per-user fees, no implementation fee — and corrections never billed twice. Eligible billed revenue is the payer-allowable value of each original claim, counted once.
+
+Cary® is the agent the owner talks to; nine agents behind it do the work inside the owner's rules. The nurse signs every clinical field. Nobody calls unless you ask.
+
+## Pages
+- [Home](https://carebravo.com/): You didn't start an agency to become its back office.
+- [Pricing](https://carebravo.com/pricing): Three plans, one $250 floor, the Outcome Assurance™ guarantee in plain language.
+- [Cary® and the nine agents](https://carebravo.com/agents): Nine moments, one per job.
+- [How it works](https://carebravo.com/how-it-works): Map, choose, run both ways for two weeks, read the weekly report.
+- [Medicaid](https://carebravo.com/medicaid): Waiver-native; rate compression, state clocks, workforce math.
+- [Georgia](https://carebravo.com/georgia): GAMMIS, CCSP, SOURCE, NOW, COMP; DCH EVV listing; GCHEX.
+- [Results](https://carebravo.com/results): The weekly report, dated; no testimonials, no growth percentage.
+- [The nine jobs](https://carebravo.com/outcomes): One page per job, the same day two ways.
+- [Scheduling & Payroll](https://carebravo.com/outcomes/scheduling-payroll): The callout you didn't have to cover.
+- [Compliance](https://carebravo.com/outcomes/compliance): The survey you were ready for.
+- [Billing](https://carebravo.com/outcomes/billing): The denial that never happened.
+- [Communication](https://carebravo.com/outcomes/communication): The 8 PM call that didn't come.
+- [Documentation](https://carebravo.com/outcomes/documentation): The referral answered today.
+- [Referrals & Reputation](https://carebravo.com/outcomes/marketing): The referrals stopped. Nobody told you why.
+- [Hiring](https://carebravo.com/outcomes/hiring): The caregiver already screened.
+- [Retention](https://carebravo.com/outcomes/retention): The caregiver who stayed past day 90.
+- [Training](https://carebravo.com/outcomes/training): Trained on the shift, not off it.
+- [About](https://carebravo.com/about): Built by Caryfy AI for the owner the system forgot to invite.
+- [Editorial policy](https://carebravo.com/editorial-policy): Sources, refusals, review dates, corrections.
+
+## Lexicon
+- [CareDrain™](https://carebravo.com/caredrain): The five drains — Economic, Talent, Time, Stability, Energy.
+- [Tangleware™](https://carebravo.com/tangleware): The tangle of disconnected systems; the Tangleware Tax™ is about $247K a year at 15 caregivers.
+- [The Screen Tax](https://carebravo.com/screen-tax): Up to 8 hours a week per care worker lost to screens (BMC Geriatrics, Ausserhofer et al., 2023); about $24K a year at 5 caregivers, $144K at 30.
+- [Autonomous Caring®](https://carebravo.com/autonomous-caring): People who care should care.
+- [Parallel Promise™](https://carebravo.com/parallel-promise): Two weeks, both ways, before you depend on it.
+
+## Optional
+- [CareBravo on iOS](https://apps.apple.com/us/app/carebravo/id6599861507)
+- [CareBravo on Android](https://play.google.com/store/apps/details?id=cary.ai)

@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Updates — What's New in CareBravo | CareBravo</title>
+<meta name="description" content="Every feature and enhancement CareBravo has shipped, dated and in one place — scheduling, billing, case management, documentation, compliance and the CareBravo mobile app.">
+<link rel="canonical" href="https://carebravo.com/updates">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://carebravo.com/updates">
+<meta property="og:title" content="Updates — What's New in CareBravo | CareBravo">
+<meta property="og:description" content="Every feature and enhancement CareBravo has shipped, dated and in one place — scheduling, billing, case management, documentation, compliance and the CareBravo mobile app.">
+<meta property="og:image" content="https://carebravo.com/og/updates.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1A1A1A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+/* ===================== /updates — page-local styles (23 Sep 2026) =====================
+   Inline and scoped to this page only, by request — css/style.css and js/updates.js were
+   reverted to their pre-/updates state; nothing here is shared with or can be overridden by
+   any other page's CSS. REUSED, unchanged, from the external stylesheet above: .page-head
+   itself (negative margin-top pulling it under the sticky nav, padding, min-height, flex
+   layout) and its .kicker/h1/p light-on-dark text rules — the exact same rules every other
+   page's hero already uses, so contrast is correct automatically, not redeclared here.
+   Also reused: section.block/.block.grey (page rhythm), h1/h2/.kicker/.lead/.quiet (type),
+   .pill/.btns (CTA), var(--ink)/var(--ink-2)/var(--ink-3)/var(--rule)/var(--jade)/
+   var(--jade-soft) (color), var(--r) (radius). The accordion below is a direct extension of
+   the site's existing .faq details/summary pattern (identical border-top:1px solid var(--ink)
+   opening rule, identical padding, identical +/– marker) — not a new interaction model. .chip
+   is new: modeled on .chips span's pill (border-radius:100px, 1px var(--rule) border) but as a
+   standalone element, since this page needs individual chips both as static tags and as
+   interactive filter buttons — .chips itself only wraps bare, static spans elsewhere on the
+   site.
+
+   .upd-hero below is the one deliberate override: every other .page-head defaults to
+   var(--dusk) — a warm gradient that, sitewide, always means "a photo is coming here" (it's
+   paired with a film-grain texture for exactly that reason). /updates will never get a photo,
+   so reusing --dusk would send the wrong signal — it'd read as an unfinished placeholder, not
+   a finished page. Built instead from var(--ink) and #0B0B0B — the exact hex already used for
+   this site's own footer background a few lines down in style.css — so no new color is
+   introduced, only a gradient between two colors the site already uses. The noise-grain
+   ::before is switched off with it, since that texture exists to simulate film grain on a
+   future photo, not to decorate flat color. */
+
+.page-head.upd-hero{background:linear-gradient(160deg, var(--ink) 0%, #0B0B0B 100%)}
+.page-head.upd-hero::before{display:none}
+
+.chip{display:inline-flex;align-items:center;border:1px solid var(--rule);border-radius:100px;padding:9px 18px;font-size:14px;color:var(--ink-2);background:var(--bg);white-space:nowrap;line-height:1.2}
+.chip.small{padding:4px 12px;font-size:12px}
+
+.upd-filter{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:48px}
+.filter-chip{cursor:pointer;font-family:var(--sans);border:1px solid var(--rule);transition:background .15s,color .15s,border-color .15s}
+.filter-chip:hover{border-color:var(--ink)}
+.filter-chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.upd-empty{display:none}
+
+.upd-group+.upd-group{margin-top:64px}
+.upd-group .upd-month{font-size:clamp(24px,2.6vw,34px);margin-bottom:8px}
+.updates{margin-top:28px;border-top:1px solid var(--ink)}
+
+.upd-entry{border-bottom:1px solid var(--rule);padding:22px 0}
+.upd-entry summary{cursor:pointer;list-style:none;display:flex;flex-wrap:wrap;align-items:baseline;column-gap:16px;row-gap:8px}
+.upd-entry summary::-webkit-details-marker{display:none}
+.upd-entry summary::after{content:"+";color:var(--jade);margin-left:auto;font-size:20px;line-height:1;flex:0 0 auto}
+.upd-entry[open] summary::after{content:"–"}
+.upd-entry[open]{padding-bottom:32px}
+.upd-date{font-size:13px;color:var(--ink-3);white-space:nowrap;order:1}
+.upd-title{font-size:18px;font-weight:500;letter-spacing:-.01em;line-height:1.35;flex:1 1 320px;order:2}
+.upd-tags{display:flex;flex-wrap:wrap;gap:6px;width:100%;order:3}
+@media (min-width:760px){.upd-tags{width:auto;order:2;margin-left:8px}.upd-title{order:1}}
+
+.upd-body{margin-top:24px;max-width:66ch;padding-left:0}
+.upd-body>*+*{margin-top:16px}
+.upd-audience{font-size:13px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em;font-weight:500}
+.upd-body p{color:var(--ink-2);line-height:1.65;font-size:16px}
+.upd-body p.lead{color:var(--ink);margin-top:0;font-size:17px}
+.upd-kicker{font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--jade)!important;margin-top:24px!important}
+.upd-howto{background:var(--bg-2);border-radius:10px;padding:16px 18px;font-size:15px!important;line-height:1.55!important}
+.upd-howto b{color:var(--ink);font-weight:500;display:block;margin-bottom:4px;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+.upd-howto .go{display:inline-block;margin-top:8px}
+.upd-tip{background:var(--jade-soft);border-radius:10px;padding:16px 18px;color:var(--ink)!important;font-style:italic;font-family:var(--serif)}
+
+@media (max-width:520px){
+  .upd-entry summary{column-gap:10px;row-gap:6px}
+  .upd-date{order:1}
+  .upd-title{order:2;flex-basis:100%}
+}
+</style>
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
+<!-- SAMEAS: omitted from the #product node until the profiles are real. ADD BEFORE LAUNCH: LinkedIn company page, Georgia DCH vendor listing, Google Business Profile. Never a placeholder URL in live JSON-LD. -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://carebravo.com/#website",
+   "url": "https://carebravo.com",
+   "name": "CareBravo",
+   "description": "More than software for Medicaid home care agencies: the nine jobs of an agency, done on one record, on the Autonomous Care OS®.",
+   "publisher": { "@id": "https://caryfy.ai/#organization" },
+   "inLanguage": "en-US"
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://caryfy.ai/#organization",
+   "name": "Caryfy AI",
+   "url": "https://caryfy.ai",
+   "founder": { "@id": "https://anandchaturvedi.com/#person" }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://anandchaturvedi.com/#person",
+   "name": "Anand Chaturvedi",
+   "url": "https://anandchaturvedi.com"
+  },
+  {
+   "@type": ["SoftwareApplication", "Service"],
+   "@id": "https://carebravo.com/#product",
+   "name": "CareBravo",
+   "url": "https://carebravo.com"
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://carebravo.com/updates#webpage",
+   "url": "https://carebravo.com/updates",
+   "name": "Updates — What's New in CareBravo",
+   "isPartOf": {
+    "@id": "https://carebravo.com/#website"
+   },
+   "about": {
+    "@id": "https://carebravo.com/#product"
+   },
+   "author": {
+    "@id": "https://caryfy.ai/#organization"
+   },
+   "reviewedBy": {
+    "@id": "https://anandchaturvedi.com/#person"
+   },
+   "datePublished": "2026-05-06",
+   "dateModified": "2026-09-15",
+   "inLanguage": "en-US",
+   "breadcrumb": {
+    "@id": "https://carebravo.com/updates#breadcrumb"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://carebravo.com/updates#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "CareBravo",
+     "item": "https://carebravo.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Updates",
+     "item": "https://carebravo.com/updates"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<div data-include="/components/header.html"></div>
+
+<header class="page-head upd-hero">
+  <div class="wrap">
+    <p class="kicker">Updates</p>
+    <h1>What's new in CareBravo.</h1>
+    <p>Every feature and fix we've shipped, dated and in one place — the same notes we send you by email, kept here so you can find one again or see the pace we ship at before you're a customer.</p>
+  </div>
+</header>
+
+<section class="block grey">
+  <div class="wrap">
+    <div class="upd-filter" role="group" aria-label="Filter updates by area">
+        <button class="chip filter-chip on" type="button" data-filter="all">All updates</button>
+        <button class="chip filter-chip" type="button" data-filter="Scheduling &amp; Payroll">Scheduling &amp; Payroll</button>
+        <button class="chip filter-chip" type="button" data-filter="Reporting &amp; Visibility">Reporting &amp; Visibility</button>
+        <button class="chip filter-chip" type="button" data-filter="Documentation &amp; Care Plans">Documentation &amp; Care Plans</button>
+        <button class="chip filter-chip" type="button" data-filter="Case Management">Case Management</button>
+        <button class="chip filter-chip" type="button" data-filter="Mobile App">Mobile App</button>
+        <button class="chip filter-chip" type="button" data-filter="Compliance &amp; EVV">Compliance &amp; EVV</button>
+        <button class="chip filter-chip" type="button" data-filter="Hiring &amp; Staffing">Hiring &amp; Staffing</button>
+        <button class="chip filter-chip" type="button" data-filter="Billing &amp; Invoicing">Billing &amp; Invoicing</button>
+    </div>
+    <p class="quiet upd-empty" hidden>No updates match this filter yet.</p>
+
+      <div class="upd-group">
+        <h2 class="upd-month">September 2026</h2>
+        <div class="updates">
+        <details class="upd-entry" data-tags="Case Management">
+          <summary>
+            <span class="upd-date">Sep 15, 2026</span>
+            <span class="upd-title">Track &amp; Sort Prospects by Referral Date and Lead Status</span>
+            <span class="upd-tags"><span class="chip small">Case Management</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Case Managers</p>
+            <p class="lead">Tracking prospects is now easier. You can now view Referral Date and Lead Status directly in the prospect list and sort prospects using these details.</p>
+            <p class="upd-kicker">Enhancement</p>
+        <p>View &amp; Sort Prospects by Referral Date and Lead Status The View Prospect list now includes two new columns: Referral Date Lead Status You can also sort prospects by Referral Date or Lead Status, making it easier to organize your prospect list and find the information you need.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → View Prospect → View Referral Date &amp; Lead Status → Click the Column to Sort <a class="go" href="https://demos.carebravo.com/demo/cmu17vp9v2kxeqme9geaf5w05?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p>Share Your Agency-Wide Lead URL with Referral Sources The Lead URL is already available and is common for your entire agency.You can share the same URL with your referral sources so they can add new prospects directly.</p>
+        <p class="upd-howto"><b>How to Access:</b> Action → View Referral Company → Select Referral company → Edit Referral Company → Lead URL <a class="go" href="https://demos.carebravo.com/demo/cmu1a5ghg001ly10j9u354efj?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p class="upd-tip">Helping you track prospects more easily and simplify how referral sources submit new leads.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Scheduling &amp; Payroll">
+          <summary>
+            <span class="upd-date">Sep 11, 2026</span>
+            <span class="upd-title">Clients &amp; Families Can Now Stay Updated with CareBravo App Notifications</span>
+            <span class="upd-tags"><span class="chip small">Scheduling &amp; Payroll</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency Owners &amp; Admins</p>
+            <p class="lead">Keeping clients and their families informed about care is now easier. Clients and their Family members will now receive notifications directly in the CareBravo app about important shift updates.</p>
+            <p class="upd-kicker">Update</p>
+        <p>Clients &amp; Family Members Can Now Receive CareBravo App Notifications Clients and their family members will receive notifications in the CareBravo app when: A Shift Is About to StartClients and family members will receive a reminder - 15 minutes before the shift starts. A New Shift Is AddedThey will be notified when a new shift is scheduled. A Shift Is UpdatedThey will receive a notification when details of an existing shift are changed. The Caregiver Is ChangedIf a different caregiver is assigned to the shift, clients and family members will be notified. The Shift Is CompletedOnce the caregiver clocks out, a notification will be sent that the shift has been completed. Note: Family members who receive notifications are added under: Action → View Client → Other Contacts</p>
+        <p class="upd-tip">Helping clients and their families stay informed about upcoming care and important shift updates.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Scheduling &amp; Payroll">
+          <summary>
+            <span class="upd-date">Sep 11, 2026</span>
+            <span class="upd-title">Create Non-Consecutive Assessor Shifts &amp; View More Client Details in Extended Care Plan</span>
+            <span class="upd-tags"><span class="chip small">Scheduling &amp; Payroll</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency Owners &amp; Admins</p>
+            <p class="lead">You can now create multiple assessor shifts on non-consecutive dates at once, view Pets and Emergency Contacts in the Extended Care Plan, and select an additional reason when inactivating a client.</p>
+            <p class="upd-kicker">New Feature</p>
+        <p>Create Multiple Assessor Shifts on Non-Consecutive Dates You can now create multiple shifts for an assessor on different, non-consecutive dates at the same time. Simply enter the shift details, select the dates you need, and CareBravo will create a shift for the selected assessor on each date.</p>
+        <p class="upd-howto"><b>How to Use:</b> Calendar → Add Shift → Enter Shift Details → Select Non-Consecutive Shifts → Select Dates → Save <a class="go" href="https://demos.carebravo.com/demo/cmtvhuzs2004k160jundn30b1?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p class="upd-kicker">Enhancements</p>
+        <p>Emergency Contacts &amp; Pets Now Visible in the Extended Care Plan You can now view a client's Emergency Contact details and Pets information directly in the Extended Care Plan, making important client details easier to access while reviewing care information.</p>
+        <p class="upd-howto"><b>How to View:</b> Action → Assessor Approval → Extended Care Plan → Select Date Range → Select Assessor &amp; Client → Select Appointment <a class="go" href="https://demos.carebravo.com/demo/cmtvey0hw1ej3qme4o29a7q9b?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p>Note: Emergency Contact Details come from: Action → View Client → Other Contacts Pets Information comes from: Action → View Client → Preferences If these details are added to the client's profile, they will be reflected in the Extended Care Plan.</p>
+        <p>Tube Feeding Schedule Added to Nutrition Information in VA Form 485 &amp; Form 485 In Nutrition Information, Tube Feeding Schedule is now available in VA Form 485 &amp; Form 485</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Approval Assessors → Select VA Form 485 or Form 485 → Select Date Range → Select Assessor &amp; Client → Select Appointment <a class="go" href="https://demos.carebravo.com/demo/cmtvkkq2906ccqmjcmm6gtsra?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p>New Reasons Added When Inactivating a Client When inactivating a client, you can now select additional reasons, including: Authorization Expired - No More Insurance Coverage This makes it easier to record the reason when a client's status is changed to inactive.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → View Client → Select Client → Scroll Down → Inactivate → Select Reason → Save <a class="go" href="https://demos.carebravo.com/demo/cmtvcek6h16ulqme4yku0g1ko?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p class="upd-tip">Helping you access important client information more easily, manage client status with clearer reasons, and schedule assessor shifts with greater flexibility.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Case Management">
+          <summary>
+            <span class="upd-date">Sep 11, 2026</span>
+            <span class="upd-title">Manage Prospects, Referrals &amp; Staff More Easily with Case Management Updates</span>
+            <span class="upd-tags"><span class="chip small">Case Management</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Case Managers</p>
+            <p class="lead">Managing prospects, referrals, and staff assignments is now easier with the latest CareBravo updates. You can now track where prospects come from, manage staff assignments, monitor referral company prospects, and manage all your leads from one place.</p>
+            <p class="upd-kicker">Case Management Enhancements</p>
+        <p>Referral By Added to Prospect Personal Information A new Referral By field is now available in a prospect's Personal Info, making it easier to identify where the prospect was referred from.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → View Prospect → Personal Info → Referral By <a class="go" href="https://demos.carebravo.com/demo/cmtsh4hzp3xz5qm3078ittv3g?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p>Staff Assignment Added to View Prospect You can now view and manage Staff Assignments directly from a prospect's details, making it easier to keep track of the staff assigned to each prospect.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → View Prospect → Staff Assignment <a class="go" href="https://demos.carebravo.com/demo/cmtsh7bhg3y12qm30h3l2pidk?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p>Manage All Your Prospects with Lead Management Lead Management section is now available in Case Management, giving you one place to view and manage your prospects. You can also update a prospect's status to Active or Inactive, helping you keep your prospect list organized and up to date.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Case Management → Lead Management → View and Manage Prospects <a class="go" href="https://demos.carebravo.com/demo/cmtsg6hw83ve9qm30hx434zmt?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p>Track Prospect Status by Referral Company You can now view the status of prospects associated with a Referral Company. This makes it easier to track and monitor prospects coming from each referral source.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Referral Company → Select Referral Company → Status <a class="go" href="https://demos.carebravo.com/demo/cmtswm18u0bdgqmgnd5vnyn2u?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p>Note: The Status option will be visible only when Government is not selected in the Referral Company information and a Provider is selected.Also, for prospects to appear under a particular Referral Company, that Referral Company must be selected as the Provider in the prospect's Personal Information.</p>
+        <p class="upd-tip">Helping you manage prospects, track referrals, assign staff, and stay organized throughout your lead management process.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Scheduling &amp; Payroll">
+          <summary>
+            <span class="upd-date">Sep 11, 2026</span>
+            <span class="upd-title">Skilled Nursing Shifts: Clock In to Start &amp; Clock Out to Complete</span>
+            <span class="upd-tags"><span class="chip small">Scheduling &amp; Payroll</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Assessors</p>
+            <p class="lead">The Skilled Nursing shift workflow now follows a clear order to help you complete each required step correctly.</p>
+            <p>Follow the Correct Shift Flow Clock In → View Shift Details &amp; Start Shift → Complete Signature → Clock Out → Mark Shift as Complete</p>
+        <p>Clock In Before Starting the Shift For a Skilled Nursing shift, you must Clock In before you can view the shift details and start the shift.</p>
+        <p class="upd-howto"><b>How to use:</b> Clock In → View Shift Details → Start Shift</p>
+        <p>Complete Your Signature Before Clocking Out Adding the required signature is mandatory before you can clock out of the shift. If the signature is not completed, an error message will appear, and the Clock Out option will not be available.</p>
+        <p class="upd-howto"><b>How to use:</b> Complete Signature → Clock Out Available</p>
+        <p>Clock Out Before Marking the Shift as Complete Once you Clock Out, you can Mark the Shift as Complete.</p>
+        <p class="upd-howto"><b>How to use:</b> Clock Out → Mark as Complete</p>
+        <p>This is the clearest flow: Clock In → Start Shift → Complete Signature → Clock Out → Mark as Complete.</p>
+        <p class="upd-tip">Follow the correct shift flow to complete your Skilled Nursing shift smoothly and successfully.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Scheduling &amp; Payroll">
+          <summary>
+            <span class="upd-date">Sep 9, 2026</span>
+            <span class="upd-title">Important Update: Location Can No Longer Be Manually Adjusted</span>
+            <span class="upd-tags"><span class="chip small">Scheduling &amp; Payroll</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency Owners &amp; Admins</p>
+            <p class="lead">We’re making an important update to how shift locations are recorded in CareBravo. To support better compliance and accurate location records, the option to manually adjust the location has been removed.</p>
+            <p>Location Can No Longer Be Manually Adjusted Once a caregiver or assessor shift is completed, when you open the completed shift card from the Calendar and view the Clock In or Clock Out location, you will now be able to view the recorded location only. The location can no longer be dragged, moved, or manually adjusted.</p>
+        <p class="upd-howto"><b>How to View:</b> Calendar → Open Completed Shift → Clock In / Clock Out → View Location</p>
+        <p>This update helps maintain more accurate and consistent location records for compliance purposes.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Reporting &amp; Visibility">
+          <summary>
+            <span class="upd-date">Sep 9, 2026</span>
+            <span class="upd-title">Search Clients Faster &amp; Pin or Unpin Reports Easily</span>
+            <span class="upd-tags"><span class="chip small">Reporting &amp; Visibility</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency Owners &amp; Admins</p>
+            <p class="lead">Finding important reports and sending broadcast messages is now easier. You can now Search by Client and Pin/Unpin reports and choose exactly who receives your Broadcast Messages.</p>
+            <p class="upd-kicker">Enhancements</p>
+        <p>Search Clients &amp; Pin or Unpin Your Reports The following reports have been optimized and now include Search by Client and Pin/Unpin functionality: Generate Payment Status Generate VA Invoice File Cost Share Invoice Report You can quickly search for a specific client and pin frequently used reports for easier access. You can also unpin reports whenever they are no longer needed.</p>
+        <p class="upd-howto"><b>How to Use:</b> Reports → Select Report → Search/Select Client <a class="go" href="https://demos.carebravo.com/demo/cmtsivm8t42qbqm30xp452inl?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p>To Pin:Reports → Select Report → Click Pin To Unpin:Reports → Pinned Reports → Select Report → Click Unpin Choose Who Receives Your Broadcast Messages Broadcast messaging in CareBravo has been improved to give you more control over your recipients. When creating a Broadcast List, you can now choose who you want to send the message to using recipient options: All Caregiver Assessor Employee Each option also displays the number of available recipients. Select All to send the broadcast to everyone, or select Caregiver, Assessor or Employee to send the message only to that specific group. You can also select individual recipients from the list before creating your broadcast list.</p>
+        <p class="upd-howto"><b>How to Use:</b> Messages → Broadcast → Create Broadcast List → Select All, Caregiver, Assessor or Employee → Create List <a class="go" href="https://demos.carebravo.com/demo/cmtsq18b64ji3qm30bte8lttw?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p>Note: Only active caregivers, assessors and employees with a valid mobile number for the CareBravo App will appear in the Broadcast List. Inactive caregivers or assessors will not be shown.</p>
+        <p class="upd-tip">Helping you find important reports faster and send the right messages to the right people.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Mobile App|Reporting &amp; Visibility">
+          <summary>
+            <span class="upd-date">Sep 3, 2026</span>
+            <span class="upd-title">Switch Agencies Easily &amp; Get Notified When Reports Are Ready</span>
+            <span class="upd-tags"><span class="chip small">Mobile App</span><span class="chip small">Reporting &amp; Visibility</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Caregiver &amp; assessors</p>
+            <p class="lead">Managing multiple agencies and generating reports is now easier with the latest CareBravo App updates. You can now switch between agencies directly from your profile and receive a notification when reports are generated.</p>
+            <p class="upd-kicker">New Features</p>
+        <p>Switch Agency in the CareBravo App If a caregiver or assessor is registered with multiple agencies, you can now switch between agencies directly from the CareBravo App.</p>
+        <p class="upd-howto"><b>How to Use:</b> CareBravo App → Profile → Switch Agency → Select AgencyVideo : <a class="go" href="https://demos.carebravo.com/demo/cmtla5ma70152190jktponhf6?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p class="upd-kicker">Improvement</p>
+        <p>Report Generation Notification Assessor reports are now generated in the background, so there’s no need to wait for the report to finish. Once the report is generated, you’ll receive an in-app notification.</p>
+        <p class="upd-tip">Switch agencies easily and keep working while your reports generate in the background.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Compliance &amp; EVV">
+          <summary>
+            <span class="upd-date">Sep 2, 2026</span>
+            <span class="upd-title">HHCS EVV: Set Up Codes, Review Exceptions &amp; Resolve EVV Issues</span>
+            <span class="upd-tags"><span class="chip small">Compliance &amp; EVV</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency Owners &amp; Admins</p>
+            <p class="lead">Managing Medicaid EVV submissions is now easier with clearer setup and faster ways to review EVV issues. You can configure the correct EVV Call Types, Procedure Codes, and Modifiers, make sure they are selected for the right clients and assessors, and quickly review and resolve EVV exceptions</p>
+            <p class="upd-kicker">HHCS EVV Setup</p>
+        <p>Set Up the Correct EVV Call Types Before submitting Medicaid shifts to EVV, make sure the correct Call Type, Procedure Code, and Modifiers are configured in CareBravo.</p>
+        <p class="upd-howto"><b>How to Set Up:</b> Action → Configuration → Call Type → Add/Edit Call Type → Enter Procedure Code &amp; Modifiers → Save <a class="go" href="https://demos.carebravo.com/demo/cmt9wddkm0w1rqmebhgcwci88?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p>Once saved, the Call Type will be available when setting up your client and assessor.</p>
+        <p class="upd-kicker">Find Your EVV Codes:Check the Georgia Medicaid EVV code table for your program’s Procedure Code and Modifiers, then enter them in CareBravo.</p>
+        <p>Georgia Medicaid – EVV Applicable Codes Georgia Medicade Cades Link: https://medicaid.georgia.gov/programs/all-programs/georgia-electronic-visit-verification-evv-0 Make Sure the Client &amp; Assessor Have the Correct Call Type After creating the Call Type, make sure the same applicable Call Type is selected for both the client and assessor. For the client, make sure the Payer is Medicaid and the correct Program Name is selected.</p>
+        <p class="upd-howto"><b>How to use:</b> Client Setup:Action → View Client → Payment Terms → Select the applicable Call TypeAction → View Client → Payer → Select Medicaid → Select the appropriate Program Name</p>
+        <p class="upd-howto"><b>How to use:</b> Assessor Setup : Action → View Assessor → Payroll Terms → Call Type → Select the applicable Call Type</p>
+        <p>Example:If the client’s Program Name is GAPP, make sure the GAPP-related Call Type is selected for both the client and assessor. When they have a shift together, both should have the same GAPP Call Type selected. This helps ensure the shift has the correct information for EVV submission.Video Link : https://demos.carebravo.com/demo/cmtaaqf4s01zlvp0jar75nrvx?utm_source=link</p>
+        <p>Review EVV Details &amp; Exceptions Once the shift is completed and the invoice is generated, you can review its EVV status and details from the Calendar. Open shift and select EVV to view the submission status and any errors or exceptions. If an issue appears, select Resolve to fix it and resubmit the shift.</p>
+        <p class="upd-howto"><b>How to Use:</b> Calendar → Select Shift → EVV → Review → Resolve <a class="go" href="https://demos.carebravo.com/demo/cmt9nz2yo0htkqmebtdj41qao?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p>Resolve EVV Issues from Dashboard Alerts You can now see EVV Alerts for both Assessor and Caregiver shifts directly on the Dashboard.Click Resolve on an alert to open the EVV Exception screen, where you can review the issue and take the required action to resolve it</p>
+        <p class="upd-howto"><b>How to Use:</b> Dashboard → Alerts → EVV Alerts → Select Caregiver/Assessor → Select Resolve Video : <a class="go" href="https://demos.carebravo.com/demo/cmt9nx6h30hpjqmeb5yq0lq5e?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p>See Modifiers &amp; Codes in Approve Shift You can now see the Procedure Code and Modifier for each Call Type directly in the Call Type column in Approve Shift.</p>
+        <p class="upd-howto"><b>How to Use:</b> Calendar → Approve Shift → Review the Call Type columnVideo : <a class="go" href="https://demos.carebravo.com/demo/cmt9o15jf0hzfqmebpzqfdnw3?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p class="upd-tip">Helping you set up the right Medicaid EVV codes, submit accurate shift information, and resolve EVV exceptions faster.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Documentation &amp; Care Plans">
+          <summary>
+            <span class="upd-date">Sep 1, 2026</span>
+            <span class="upd-title">Plan of Care Summary Note, Assessment Notes &amp; Goals Now Visible in Extended Care Plan</span>
+            <span class="upd-tags"><span class="chip small">Documentation &amp; Care Plans</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency Owners &amp; Admins</p>
+            <p class="lead">You can now view Plan of Care Summary Note, Assessment Notes, and Goals directly in the Extended Care Plan and during the shift in the app, making important care information easier to access when completing care tasks.</p>
+            <p class="upd-kicker">Improvements</p>
+        <p>Plan of Care Summary Note, Assessment Notes &amp; Goals Plan of Care Summary Note, Assessment Notes, and Goals are now visible in the Extended Care Plan.</p>
+        <p class="upd-howto"><b>How to View in CareBravo:</b> Action → Approvals Assessor → Extended Care Plan → Date Range → Select Client &amp; Caregiver → Appointment → Care Plan</p>
+        <p>These details are also visible in the app during the shift, allowing the assessor to review them while completing the Care Plan and required tasks. Note: Information added to the Plan of Care Summary Note, Assessment Notes, and Goals in the client’s Care Task will be reflected in the Extended Care Plan Action → View Client → Select Client → Plan of Care → Care Task</p>
+        <p class="upd-tip">Helping you set up the right Medicaid EVV codes, submit accurate shift information, and resolve EVV exceptions faster.</p>
+          </div>
+        </details>
+        </div>
+      </div>
+
+      <div class="upd-group">
+        <h2 class="upd-month">August 2026</h2>
+        <div class="updates">
+        <details class="upd-entry" data-tags="Documentation &amp; Care Plans">
+          <summary>
+            <span class="upd-date">Aug 27, 2026</span>
+            <span class="upd-title">Critical Client Information Reminder &amp; Mandatory Signature Notifications</span>
+            <span class="upd-tags"><span class="chip small">Documentation &amp; Care Plans</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency Owners &amp; Admins</p>
+            <p class="lead">Keep critical client information accurate and required signatures on track with the latest CareBravo improvements. You’ll now get a reminder before saving changes that may affect billing, while caregivers and assessors receive in-app notifications for required signatures.</p>
+            <p class="upd-kicker">New Feature</p>
+        <p><a class="go" href="https://demos.carebravo.com/demo/cmt89d7os056dqmvhbqb526tn?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p>Reminder for Critical Client Information Changes CareBravo now shows a confirmation reminder when you change specific client information that can affect billing. The reminder appears when you change: First Name Last Name Date of Birth SSN Medicaid ID under Medicaid Payer The pop-up reminds you that these changes may directly affect billing and other client processes. Review the information carefully and select Yes, Continue only after confirming the details are correct.. Review critical information before confirming to help avoid billing issues. Mandatory Signature Reminders for Caregivers &amp; Assessors If Client Signature Mandatory or Assessor Signature Mandatory is enabled in Agency Settings, caregivers and assessors will now receive an in-app notification</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Agency Settings → Enable Client &amp; Assessor Signature Mandatory → Save <a class="go" href="https://demos.carebravo.com/demo/cmt6xj6uy41fwqm834ojvdjoo?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p class="upd-tip">Helping you</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Mobile App|Scheduling &amp; Payroll">
+          <summary>
+            <span class="upd-date">Aug 26, 2026</span>
+            <span class="upd-title">Easier Signing on Mobile</span>
+            <span class="upd-tags"><span class="chip small">Mobile App</span><span class="chip small">Scheduling &amp; Payroll</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Assessors</p>
+            <p class="lead">Sign in Full Screen</p>
+            <p>Having trouble signing in the available space? You can now use Full Screen to get more room for your signature and sign more comfortably on your device.</p>
+        <p class="upd-howto"><b>How to Use:</b> Clock In → Complete Tasks  → Clock Out → Add Signature → Click Full Screen → Sign → SaveVideo : <a class="go" href="https://demos.carebravo.com/demo/cmt8b34fl00lpxs0jgj2bpgt4?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p class="upd-tip">Helping you sign more easily on any device.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Scheduling &amp; Payroll|Documentation &amp; Care Plans">
+          <summary>
+            <span class="upd-date">Aug 26, 2026</span>
+            <span class="upd-title">Never Miss a Shift Signature + Easier Signing on Mobile</span>
+            <span class="upd-tags"><span class="chip small">Scheduling &amp; Payroll</span><span class="chip small">Documentation &amp; Care Plans</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Caregiver</p>
+            <p class="lead">Keeping your shift signatures complete is now easier. You’ll be reminded about missing signatures from previous shifts, and you can now use Full Screen for a more comfortable signing experience..</p>
+            <p class="upd-kicker">New Features</p>
+        <p>Get Reminded About Missing Shift Signatures If you have not signed your previous shift, CareBravo will remind you when you clock in to your current shift. A pop-up will let you know that a signature is missing from your previous shift, with options to Skip or OK. Select OK to go to the previous shift and complete the required details, including shift details, miles, expenses, and signature. Once the previous shift is completed and signed, you can continue with your current shift.</p>
+        <p class="upd-howto"><b>How to Use:</b> Open Current Shift → Clock In → Missing Signature Reminder → OK → Complete Previous Shift → Clock Out → Add Signature → Save → Continue to Current ShiftVideo : <a class="go" href="https://demos.carebravo.com/demo/cmt8c5syw004txx0jenaz2kng?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p>Sign in Full Screen Having trouble signing in the available space? You can now use Full Screen to get more room for your signature and sign more comfortably on your device.</p>
+        <p class="upd-howto"><b>How to Use:</b> Clock In → Complete Tasks  → Clock Out → Add Signature → Click Full Screen → Sign → SaveVideo : <a class="go" href="https://demos.carebravo.com/demo/cmt8b34fl00lpxs0jgj2bpgt4?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p class="upd-tip">Helping you keep your shift signatures complete and making signing easier on any device.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Reporting &amp; Visibility">
+          <summary>
+            <span class="upd-date">Aug 24, 2026</span>
+            <span class="upd-title">Create Shifts Faster &amp; Manage Outstanding Balance Reports Easier</span>
+            <span class="upd-tags"><span class="chip small">Reporting &amp; Visibility</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency Owners &amp; Admins</p>
+            <p class="lead">Managing shifts and Outstanding Balance Reports is now easier. You can create multiple shifts at once and search, pin, and access Outstanding Balance Reports faster with the latest CareBravo improvements.</p>
+            <p class="upd-kicker">New FeatureCreate Multiple Caregiver Shifts on Non-Consecutive Dates</p>
+        <p>You can now create multiple shifts for selected caregiver on different, non-consecutive dates at once. Enter the shift details once, select the dates you need, and CareBravo will create the multiple shifts for same caregiver for each selected date.</p>
+        <p class="upd-howto"><b>How to Use:</b> Calendar → Add Shift → Enter Shift Details → Select Non-Consecutive Shifts checkbox → Select Dates → Save <a class="go" href="https://demos.carebravo.com/demo/cmt6ysumu447nqm83rtg7kfxg?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p class="upd-kicker">Improvements</p>
+        <p>Enhanced Outstanding Balance Report The Outstanding Balance Report has been improved with Search by Client and Pin/Unpin Report functionality, making it easier to find specific client information and quickly access frequently used reports. Search by ClientYou can now select a client from the dropdown or search by client name to quickly find the information you need.</p>
+        <p class="upd-howto"><b>How to Use:</b> Reports → Outstanding Balance Report→ Select Date Range → Search/Select Client</p>
+        <p>Pin Your Report SettingsYou can now Pin an Outstanding Balance Report with your selected Date Range. The report will appear under Pinned Reports, and when you open it again, your saved Date Range will already be selected.</p>
+        <p class="upd-howto"><b>How to Use:</b> To Pin:Reports → Outstanding Balance Report → Click Pin Icon <a class="go" href="https://demos.carebravo.com/demo/cmt73nyyx4edmqm836m3thgqn?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p>To Unpin:Reports → Pinned Reports → Select Outstanding Balance Report → Click Unpin Icon</p>
+        <p class="upd-tip">Helping you</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Reporting &amp; Visibility">
+          <summary>
+            <span class="upd-date">Aug 22, 2026</span>
+            <span class="upd-title">More Visibility in Invoices &amp; Payroll + Easier VA Reports</span>
+            <span class="upd-tags"><span class="chip small">Reporting &amp; Visibility</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency Owners &amp; Admins</p>
+            <p class="lead">Reviewing invoices, payroll, and VA eligibility information is now easier with the latest CareBravo improvements. You can now see when shifts were approved, review clearer payroll details, and find VA client information faster.</p>
+            <p class="upd-kicker">Improvements</p>
+        <p>Shift Approved On Date in Generate Invoice The Generate Invoice screen now includes a Shift Approved On date, making it easier to see when each shift was approved before generating an invoice.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Generate Invoice → View Shift Approved On <a class="go" href="https://demos.carebravo.com/demo/cmt3tueqb2e05qm83bcwrrgng?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p>Find Clients Faster in the VA Eligibility Report The VA Eligibility Report now makes it easier to find clients and quickly access frequently used reports. Search by ClientYou can now search for a specific client by selecting a client from the dropdown or searching by client name.</p>
+        <p class="upd-howto"><b>How to Use:</b> Reports → VA Eligibility Report → Search/Select Client</p>
+        <p>Pin Your Report SettingsYou can now Pin an VA Eligibility Report with your selected Date Range and Payer Type. The report will appear under Pinned Reports, and when you open it again, your saved Date Range and Payer Type will already be selected.</p>
+        <p class="upd-howto"><b>How to Use:</b> To Pin:Reports → VA Eligibility Report → Click Pin Icon <a class="go" href="https://demos.carebravo.com/demo/cmt404t8o2gi1qm83fodvorjt?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p>To Unpin:Reports → Pinned Reports → Select the VA Eligibility Report → Click Unpin Icon</p>
+        <p>Clearer Call Type Details in Generate Payroll PDF When you export Generate Payroll as a PDF, each call type for the same nurse is now shown as a separate entry, just like on the Generate Payroll screen, making payroll details easier to review.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Generate Payroll → Export PDF <a class="go" href="https://demos.carebravo.com/demo/cmt48761n2j9sqm835sbpo6p9?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p class="upd-tip">Helping you review approved shifts, understand payroll details, and find VA client information with greater clarity.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Scheduling &amp; Payroll|Reporting &amp; Visibility">
+          <summary>
+            <span class="upd-date">Aug 20, 2026</span>
+            <span class="upd-title">More Control Over Copy Shifts, Assessor Shifts &amp; Medicaid File Reports</span>
+            <span class="upd-tags"><span class="chip small">Scheduling &amp; Payroll</span><span class="chip small">Reporting &amp; Visibility</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency Owners &amp; Admins</p>
+            <p class="lead">Managing shifts and reports is now easier with the latest CareBravo improvements. You can now copy shifts more easily, access Copy Shift, Notes, and Shift Details for Assessor shifts, and search and pin Medicaid File Reports faster.</p>
+            <p class="upd-kicker">Improvements</p>
+        <p>Copy Shifts with More Flexibility Copying a shift is now easier. On the Copy Shift screen, you can: View the original shift details before creating a copy. Select a date range or choose specific days for the new shifts. Change the start time and duration if needed before saving.</p>
+        <p class="upd-howto"><b>How to Use:</b> Calendar → Select Shift → Copy Shift → Select Date Range → Day(s) → Change Time → Save <a class="go" href="https://demos.carebravo.com/demo/cmt19txt30nhlqmxrftrvgx4x?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p>More Actions Available for Assessor Shifts When you open an Assessor shift from the Calendar, the shift pop-up now shows additional options, including Copy Shift, Notes, and Shift Details.</p>
+        <p class="upd-howto"><b>How to Use:</b> Calendar → Select Assessor → Select Shift → Copy Shift / Notes / Shift Details <a class="go" href="https://demos.carebravo.com/demo/cmt1cqjkr0u90qmxr1x8sg3cn?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p>Find Clients Faster in the Medicaid File Report The Medicaid File Report now makes it easier to find clients and quickly access reports with your preferred settings. Search by ClientYou can now search for a specific client by selecting a client from the dropdown or searching by client name.</p>
+        <p class="upd-howto"><b>How to Use:</b> Reports → Medicaid File → Select Date Range → Select Program → Search/Select Client → Run</p>
+        <p>Pin Your Report SettingsYou can now Pin an Medicaid File Report with your selected Date Range and Payer Type. The report will appear under Pinned Reports, and when you open it again, your saved Date Range and Payer Type will already be selected.</p>
+        <p class="upd-howto"><b>How to Use:</b> To Pin:Reports → Medicaid File Report → Click Pin Icon <a class="go" href="https://demos.carebravo.com/demo/cmszy7wt7193iqmunexsn1cbh?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p>To Unpin:Reports → Pinned Reports → Select the Medicaid File Report → Click Unpin Icon</p>
+        <p class="upd-tip">Find clients faster, access Assessor shift actions easily, and copy shifts with more control, all in CareBravo.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Scheduling &amp; Payroll">
+          <summary>
+            <span class="upd-date">Aug 19, 2026</span>
+            <span class="upd-title">Catch Scheduling Conflicts While Adding a Shift</span>
+            <span class="upd-tags"><span class="chip small">Scheduling &amp; Payroll</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency Owners &amp; Admins</p>
+            <p class="lead">Scheduling a client-caregiver shift is now easier. You can check caregiver availability while adding a shift, see which caregivers are unavailable, and view their existing shift times before scheduling. This helps you avoid scheduling conflicts.</p>
+            <p class="upd-kicker">Improvements</p>
+        <p>Caregiver Unavailability When Scheduling Shifts When adding a shift, CareBravo now shows Unavailable Caregivers when a caregiver has a conflicting shift or is unavailable on that date.</p>
+        <p class="upd-howto"><b>How to Use:</b> Calendar → Add Client Shift → Select Client →  Enter Other Details → Select date &amp; time → Review Unavailable Caregivers</p>
+        <p>See Conflicting ShiftsClick Unavailable Caregivers and select a caregiver to see a pop-up with their conflicting or double-booked shift details. You can then adjust your new shift accordingly. Check Recurring Shift ConflictsWhen creating a recurring shift, you can check whether the caregiver already has a conflicting recurring shift before scheduling. Keep a 5-Minute Gap Between ShiftsA 5-minute gap is required between shifts. For example, if a caregiver has a shift from 8:00 AM to 10:00 AM, the next shift can start at 10:05 AM. See Scheduled UnavailabilityIf a caregiver is marked unavailable for a specific date under Action → View Caregiver → Unavailability, they will also appear under Unavailable Caregivers when you schedule a shift for that date.</p>
+        <p class="upd-tip">Helping you check caregiver availability upfront, avoid double-booking, and schedule shifts with greater confidence.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Compliance &amp; EVV|Reporting &amp; Visibility">
+          <summary>
+            <span class="upd-date">Aug 18, 2026</span>
+            <span class="upd-title">New: Assigned Assessor in Client Reports + Medicaid Documents</span>
+            <span class="upd-tags"><span class="chip small">Compliance &amp; EVV</span><span class="chip small">Reporting &amp; Visibility</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency Owners &amp; Admins</p>
+            <p class="lead">Finding important client information is now easier in CareBravo. You can now see the assigned Assessor directly in Client Reports and access Medicaid Documents from the client's Payer information, making key client details easier to find and manage.</p>
+            <p class="upd-kicker">Improvements</p>
+        <p>Assigned Assessor in Client Report The Client Report now displays the assigned Assessor for each client, making it easier to identify the Assessor associated with a particular client.</p>
+        <p class="upd-howto"><b>How to Use:</b> Reports → Client Report → Details → Select Assessor → Run <a class="go" href="https://demos.carebravo.com/demo/cmsydc3h20nupqmlad335q13f?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p>Note: The Client Report now displays the names assigned under Action → View Client → Assignment, including Assessor 1, Assessor 2, Assessor 3, IA-RA, RN Manager, and Director.</p>
+        <p>Medicaid Documents in Client Payer Information When Medicaid is selected as the client's payer, a Medicaid Documents tab is now available in Payer Information. You can upload and manage documents related to the client's Medicaid coverage directly from the client's profile.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → View Client → Payer → Medicaid Documents <a class="go" href="https://demos.carebravo.com/demo/cmsy8zasw0iw4qmla6gs9ejih?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p class="upd-tip">Helping you avoid scheduling conflicts, find assigned Assessor faster, and keep Medicaid documents organized and accessible.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Reporting &amp; Visibility">
+          <summary>
+            <span class="upd-date">Aug 17, 2026</span>
+            <span class="upd-title">Enhanced Invoice File Report</span>
+            <span class="upd-tags"><span class="chip small">Reporting &amp; Visibility</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency Owners &amp; Admins</p>
+            <p class="lead">The Invoice File Report now gives you more flexibility when searching for client invoices and accessing it frequently</p>
+            <p class="upd-kicker">Improvements</p>
+        <p>Search by Client You can now search for a specific client directly within the Invoice File Report. Select a client from the dropdown or search by client name to quickly find the information you need.</p>
+        <p class="upd-howto"><b>How to Use:</b> Reports → Invoice File → Select Date Range → Select Payer → Search/Select Client → Run</p>
+        <p>Pin Your Report Settings You can now Pin an Invoice File Report with your selected Date Range and Payer Type. The report will appear under Pinned Reports, and when you open it again, your saved Date Range and Payer Type will already be selected.</p>
+        <p class="upd-howto"><b>How to Use:</b> To Pin:Reports → Invoice File Report → Click Pin Icon</p>
+        <p>To Unpin:Reports → Pinned Reports → Select the Invoice File Report → Click Unpin Icon</p>
+        <p class="upd-tip">Making the Invoice File Report easier to search and quicker to access with your preferred settings.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Scheduling &amp; Payroll|Documentation &amp; Care Plans">
+          <summary>
+            <span class="upd-date">Aug 12, 2026</span>
+            <span class="upd-title">Better Shift Control &amp; New Vital Signs Assessment Are Here</span>
+            <span class="upd-tags"><span class="chip small">Scheduling &amp; Payroll</span><span class="chip small">Documentation &amp; Care Plans</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency Owners &amp; Admins</p>
+            <p class="lead">Managing shifts and reviewing care plans is now easier with the latest CareBravo updates. You can select specific shifts when canceling, quickly check caregiver and client signature status during approval, and access Vital Signs Assessment information directly from the Extended Care Plan.</p>
+            <p class="upd-kicker">New Feature</p>
+        <p>Vital Signs Assessment in Extended Care Plan The Extended Care Plan now includes a Vital Signs Assessment, giving you easier access to vital sign information.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Assessor Approval → Extended Care Plan → Vital Signs Assessment <a class="go" href="https://demos.carebravo.com/demo/cmsob002i0aj6qmcgbsz8hlhr?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p class="upd-kicker">Improvements</p>
+        <p>More Control Over Shift Cancellations You can now select specific shifts when canceling from the Calendar. After choosing the date or date range, a table displays the available shifts for that period, allowing you to select the specific shifts you want to cancel using checkboxes. A Cancel Reason is required before saving. If you select Other, you’ll also need to enter the reason.</p>
+        <p class="upd-howto"><b>How to Use:</b> Calendar → Cancel Shift → Select Date/Date Range → Select Shift(s) → Choose Cancel Reason → Save <a class="go" href="https://demos.carebravo.com/demo/cmso5mjgt03roqmcgi1h4t94f?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p>Clearer Signature Status During Shift Approval The Approve Shift screen now shows whether the Caregiver and Client have signed or are still unsigned, making it easier to verify signatures before approving a shift.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Approve Shift → Select Client/Caregiver → Select Date Range <a class="go" href="https://demos.carebravo.com/demo/cmso5on4t043sqmcgyohhvmu2?utm_source=link" target="_blank" rel="noopener">Watch how it works</a></p>
+        <p class="upd-tip">Helping you manage shift cancellations with greater control and complete approvals with greater confidence.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Reporting &amp; Visibility">
+          <summary>
+            <span class="upd-date">Aug 10, 2026</span>
+            <span class="upd-title">More Complete Client Information &amp; Smarter Reporting Are Here</span>
+            <span class="upd-tags"><span class="chip small">Reporting &amp; Visibility</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency Owners &amp; Admins</p>
+            <p class="lead">Managing client information and reviewing reports is now easier with the latest CareBravo updates. You can now access ICD codes and referral information in reports, view Primary Physician addresses, and add client other contacts with more flexibility.</p>
+            <p class="upd-kicker">Improvements</p>
+        <p>ICD Codes in Medicaid Eligibility Report The Medicaid Eligibility Report now includes the ICD Code in the Medicaid Diagnosis column, making diagnosis information easier to identify and review.</p>
+        <p class="upd-howto"><b>How to Use:</b> Reports → Medicaid Eligibility</p>
+        <p>Referral Company in Client Report The Client Report now includes the client's Referral Company, making it easier to see where a client was referred from.</p>
+        <p class="upd-howto"><b>How to Use:</b> Reports → Client Report → Details(select  Referral Company) → Run</p>
+        <p>Note: Referral Company information comes from View Client → Select Client→ Referral Information.</p>
+        <p>Primary Physician Address in Health Information You can now view the Primary Physician's address directly in the client's Health Information, giving you easier access to important details.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → View Client → Select Client → Health Information → Primary Physician</p>
+        <p>Optional Address for Other Client Contacts The Address field for Other Contacts is now optional, giving you more flexibility when adding or updating client contact information.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → View Client → Select Client → Other Contacts</p>
+        <p class="upd-tip">Helping you keep client information complete, accessible, and easier to manage across CareBravo.</p>
+          </div>
+        </details>
+        </div>
+      </div>
+
+      <div class="upd-group">
+        <h2 class="upd-month">July 2026</h2>
+        <div class="updates">
+        <details class="upd-entry" data-tags="Documentation &amp; Care Plans">
+          <summary>
+            <span class="upd-date">Jul 27, 2026</span>
+            <span class="upd-title">New Pending Signature Tracking &amp; Approval Updates</span>
+            <span class="upd-tags"><span class="chip small">Documentation &amp; Care Plans</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency owners admin</p>
+            <p class="lead">Approving caregiver and assessor documentation is now faster and more organized. With new Pending Signature tracking, Dashboard alerts, and Time In/Out visibility for Supervisory Visit approvals, you can quickly identify pending approvals, review visit details, and complete approvals with confidence.</p>
+            <p class="upd-kicker">New Feature</p>
+        <p>Pending SignaturesA dedicated Pending Signature screen is now available, allowing you to review all records awaiting approval in one place. Simply select a date range and choose Caregiver or Assessor to view pending approvals.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Pending Signature → Select Date Range → Choose Caregiver or Assessor</p>
+        <p>Pending Approval Signature AlertA new Pending Signatures Alert has been added to the Dashboard, giving you a quick count of caregiver and assessor records that are waiting for approval.</p>
+        <p class="upd-howto"><b>How to Use:</b> Dashboard → Alerts → Pending Signatures</p>
+        <p>Pending Signature Email NotificationsAgency Owners, Admins, and Assessors will now automatically receive a daily email notification for Pending Signatures from the Previous Day. This helps ensure pending approvals are reviewed and completed on time.</p>
+        <p class="upd-howto"><b>How to Use:</b> Email notifications are automatically sent whenever there are pending signatures from the previous day awaiting approval.</p>
+        <p>Time In &amp; Time Out in Supervisory Visit ApprovalsThe Assessor Approval screen now displays Time In and Time Out for Supervisory Visits, making it easier to verify visit details during the approval process.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Approvals Assessor → Select Supervisory Visit</p>
+        <p class="upd-tip">Helping you track pending approvals, verify visit details, and complete approvals faster—all from one place.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Hiring &amp; Staffing">
+          <summary>
+            <span class="upd-date">Jul 24, 2026</span>
+            <span class="upd-title">Hiring Just Got Easier: Manage Jobs &amp; Applicants in One Place</span>
+            <span class="upd-tags"><span class="chip small">Hiring &amp; Staffing</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency owners admin</p>
+            <p class="lead">Managing your job postings and reviewing applicants is now easier with the latest Hiring Module updates. You can quickly view job details, review applicants, and share your job listings so candidates can apply with ease.</p>
+            <p class="upd-kicker">New Feature</p>
+        <p>Manage Your Job Postings &amp; ApplicantsThe View Jobs screen has been enhanced to give you quick access to your posted jobs and applicants. You can view job details, see who has applied, review application information, and access uploaded resumes, all from one screen.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Hiring Module → View Jobs</p>
+        <p>From the View Jobs screen you can: Click View Job Details to view the complete job information. Click See Applicants to view everyone who has applied for the job. Click View Details for an applicant to review their application overview. View the applicant's uploaded resume (if available).</p>
+        <p>Share Your Job Openings with CandidatesSharing jobs is now quicker and more flexible. You can share all your active job openings or send a direct link to a specific job, depending on your hiring needs.</p>
+        <p class="upd-howto"><b>How to Use:</b> Copy Your Job Listings URL to share all active job openings posted by your agency.</p>
+        <p>Click the Link icon on a job card to copy that job's unique URL and share it directly with a candidate. Note: Candidates can open the shared link, review the job details, and click Chat To Apply to submit their application. Once submitted, their application will automatically appear in See Applicants.Action → Hiring Module → View Jobs → See Applicants</p>
+        <p class="upd-tip">Helping you hire faster by keeping your jobs and applicants organized in one place.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Reporting &amp; Visibility">
+          <summary>
+            <span class="upd-date">Jul 22, 2026</span>
+            <span class="upd-title">Manage Other Contacts for Employees &amp; Assessors</span>
+            <span class="upd-tags"><span class="chip small">Reporting &amp; Visibility</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency owners admin</p>
+            <p class="lead">Managing employee and assessor information is now even easier with the latest CareBravo update.</p>
+            <p class="upd-kicker">New Feature</p>
+        <p>Other Contacts for Employees &amp; AssessorsYou can now add and manage Other Contacts for Employees and Assessors, making it easier to keep other contact information in one place whenever it's needed.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → View Employee → Employee/Assessor → Other Contacts</p>
+        <p class="upd-tip">Helping you keep employee and assessor records complete, organized, and easy to manage.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Documentation &amp; Care Plans">
+          <summary>
+            <span class="upd-date">Jul 17, 2026</span>
+            <span class="upd-title">More Accurate Medication Time Tracking Is Here</span>
+            <span class="upd-tags"><span class="chip small">Documentation &amp; Care Plans</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Caregiver</p>
+            <p class="lead">Keeping medication records accurate is now easier with the latest CareBravo app update.</p>
+            <p class="upd-kicker">New Features</p>
+        <p>Individual Time Tracking for Every Medication DaseThe CareBravo app now records the actual time each medication dose is marked as given. If a medication is scheduled multiple times a day, each dose will have its own recorded time, providing a complete and accurate medication history.</p>
+        <p class="upd-howto"><b>How to Use:</b> CareBravo App → Medications → Tap the ✔️ next to each scheduled medication after it has been administered</p>
+        <p>Example:If a medication is scheduled for 8:00 AM, 2:00 PM, and 10:00 PM, marking each dose as completed will record the actual time separately for all three doses.</p>
+        <p class="upd-tip">Helping you maintain accurate medication records and improve care documentation with every dose.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Case Management|Scheduling &amp; Payroll">
+          <summary>
+            <span class="upd-date">Jul 16, 2026</span>
+            <span class="upd-title">New Lead Management, Timesheet &amp; TELLUS Enhancements Are Here</span>
+            <span class="upd-tags"><span class="chip small">Case Management</span><span class="chip small">Scheduling &amp; Payroll</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency owners admin</p>
+            <p class="lead">Managing referrals, client documentation, scheduling, and billing is now easier with the latest CareBravo updates. We've introduced new enhancements across Lead Management, Monthly Timesheets, Monthly Shift Summary, and TELLUS to help simplify your daily workflow and improve visibility.</p>
+            <p class="upd-kicker">New Feature</p>
+        <p>Simplified Lead Submission for Referral SourcesEach agency now has a dedicated Lead URL that can be shared with its referral sources. Referral sources simply verify their registered email address to submit new leads OTP verification is no longer required, making the process faster and more convenient.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → View Referral Company → Edit Referral Company → Lead URL</p>
+        <p>Note: Only email addresses registered as referral sources for your agency can submit new leads.</p>
+        <p>Shift Notes in Monthly Timesheet PDFMonthly Timesheet PDFs now include both Notes and Shift Notes, giving you a more complete record of each visit in a single document.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → View Client → Client Timesheet → Save PDF</p>
+        <p>Note: Notes are clearly identified by type (General Note or Shift Note) in the PDF.</p>
+        <p>All Clients View in Invoice HistoryInvoice History now lets you view invoice history for all clients from a single screen. Simply select All Clients, choose a date range, and review invoices with new pagination options(10, 20, or 50 records per page) for easier navigation.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Invoice History → Select All Clients → Select Date Range → Search</p>
+        <p>Remaining Hours in Monthly Shift SummaryThe Monthly Shift Summary now displays Remaining Skilled Hours and Remaining Unskilled Hours, calculated by subtracting Scheduled Hours from Authorized Hours. This provides a quick view of the hours still available.</p>
+        <p class="upd-howto"><b>How to Use:</b> Calendar → View Monthly → Shift Summary Monthly</p>
+        <p class="upd-kicker">Improvements</p>
+        <p>Enhanced TELLUS Invoice ProcessingWhen creating invoices, shifts are now sent to TELLUS in batches of 90, improving processing efficiency for larger invoices.</p>
+        <p class="upd-howto"><b>How to Use:</b> Applies automatically during invoice creation.</p>
+        <p class="upd-tip">Helping you manage referrals, documentation, scheduling, and billing with greater efficiency and visibility.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Documentation &amp; Care Plans|Scheduling &amp; Payroll">
+          <summary>
+            <span class="upd-date">Jul 11, 2026</span>
+            <span class="upd-title">Smarter Skilled Nursing, Attendance Tracking &amp; AI Powered Support Are Here</span>
+            <span class="upd-tags"><span class="chip small">Documentation &amp; Care Plans</span><span class="chip small">Scheduling &amp; Payroll</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency Owners &amp; Admins</p>
+            <p class="lead">We've introduced new mobile app enhancements to improve Skilled Nursing documentation, attendance tracking, and i AI Powered Support, helping your team work more efficiently.</p>
+            <p class="upd-kicker">New Features</p>
+        <p>Skilled Nursing Record ManagementAssessors can now view, edit, and delete previously recorded entries in Skilled Nursing, making it easier to maintain accurate documentation. Available in: Vitals – View history of previously recorded vitals and edit or delete entries. Seizure (Intake Tab) – View history of seizure records and edit or delete entries.</p>
+        <p class="upd-howto"><b>How to Use:</b> CareBravo App → Skilled Nursing → Vitals / Intake → Edit or Delete Records</p>
+        <p>Note: Only Assessors can modify Skilled Nursing records.</p>
+        <p>Ask AI Training VideosThe Ask AI can now provide training videos for common app questions. For example, asking "How do I clock in?" will return a training video to guide caregivers through the process.</p>
+        <p class="upd-howto"><b>How to Use:</b> CareBravo App → Home Screen → Ask AI → Ask your question</p>
+        <p>Attendance TrackingOne can now view their attendance directly in the CareBravo app, including weekly and monthly attendance along with total working hours.</p>
+        <p class="upd-howto"><b>How to Use:</b> CareBravo App → Profile → Attendance → Select Weekly or Monthly View</p>
+        <p class="upd-tip">Helping caregivers and assessors access information faster, maintain accurate records, and get instant guidance within the CareBravo app.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Scheduling &amp; Payroll">
+          <summary>
+            <span class="upd-date">Jul 9, 2026</span>
+            <span class="upd-title">You Asked, We Improved: Payroll, Shift &amp; TELLUS Enhancements Are Here</span>
+            <span class="upd-tags"><span class="chip small">Scheduling &amp; Payroll</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency owners admin</p>
+            <p class="lead">From Generate Payroll and Calendar to Assessor Shift Management and TELLUS, we've introduced new enhancements to improve payroll visibility, shift management, and overnight scheduling across CareBravo.</p>
+            <p class="upd-kicker">New Feature</p>
+        <p>Approved &amp; Unapproved Hours in Generate PayrollThe Generate Payroll screen now displays Approved Hours and Unapproved Hours, giving you a clearer view of payroll hours before processing payroll.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Generate Payroll</p>
+        <p>Shift Notes Across Scheduling &amp; Edit ShiftYou can now add Shift Notes while scheduling a shift. These notes will automatically appear in both the Edit Shift screen and the Notes section of the Shift Details card, where they can be viewed and updated whenever needed.</p>
+        <p class="upd-howto"><b>How to Use:</b> Calendar → Add Shift → Enter Shift Notes</p>
+        <p>Calendar → Select Shift → Edit Shift → View or Update Notes</p>
+        <p>Monthly Notes ReportA new Monthly Notes Report is now available, allowing you to view both Shift Notes and Scheduled Notes in one place for easier review and tracking.</p>
+        <p class="upd-howto"><b>How to Use:</b> Reports → Monthly Notes Report → Select Date Range → Run Report</p>
+        <p class="upd-kicker">Improvements</p>
+        <p>Overnight Shift Handling in TELLUS Overnight shifts are now automatically split across the applicable dates in TELLUS for more accurate scheduling and reporting. Applies automatically to overnight shifts. ExampleA shift from 9:00 PM to 2:00 AM will be divided between the two calendar days.</p>
+        <p>Removed Delete, Edit &amp; Cancel Options for Canceled Assessor Shifts To protect completed records, the Delete, Edit and Cancel options are no longer available for Canceled Assessor shifts that have already been clocked in, clocked out, or signed.</p>
+        <p>All Clients Option in Invoice History Invoice History now includes an All Clients option, allowing you to view invoice history for all clients or a specific client within a selected date range.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Invoice History → Select All Clients (or a specific client) → Select Date Range</p>
+        <p class="upd-tip">Helping you manage payroll, shift communication, reporting, and scheduling with greater visibility, accuracy, and control.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Hiring &amp; Staffing">
+          <summary>
+            <span class="upd-date">Jul 2, 2026</span>
+            <span class="upd-title">Introducing AI Job Assistant for Faster Caregiver Hiring</span>
+            <span class="upd-tags"><span class="chip small">Hiring &amp; Staffing</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency owners admin</p>
+            <p class="lead">Hiring caregivers is now faster and easier with the new AI Job Assistant. Simply answer a few questions, preview your job, and post it directly from CareBravo. You can also view and manage all your posted jobs from one place.</p>
+            <p class="upd-kicker">New Hiring Module</p>
+        <p>AI Job Assistant for Caregiver HiringThe new AI Job Assistant helps you create and post caregiver job openings in just a few simple steps. It guides you through the process, generates the job post, and also lets you preview it before publishing.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Hiring Module → AI Job Assistant → Post a Caregiver Job → Answer the prompts → Preview Job → Post Job</p>
+        <p>View Posted Jobs After posting, you can view all your job postings in a card layout &amp; can also copy the job link to share it with candidates.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Hiring Module → View Jobs</p>
+        <p class="upd-tip">Making caregiver hiring faster, simpler, and more efficient with AI.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Scheduling &amp; Payroll|Documentation &amp; Care Plans">
+          <summary>
+            <span class="upd-date">Jul 2, 2026</span>
+            <span class="upd-title">Smarter Time Settings &amp; Documentation Updates Are Here</span>
+            <span class="upd-tags"><span class="chip small">Scheduling &amp; Payroll</span><span class="chip small">Documentation &amp; Care Plans</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency owners admin</p>
+            <p class="lead">Managing time tracking, client documentation, and shift approvals is now easier with the latest CareBravo updates. We've introduced new enhancements to give you more flexibility, improve documentation, and simplify everyday workflows.</p>
+            <p class="upd-kicker">New Feature</p>
+        <p>Time Configuration for VisitsYou can now control whether Scheduled, Actual, and Custom Time In/Out options are available in the CareBravo app for visits. Simply tick the checkbox in Agency Settings.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Agency Settings → Time Configuration</p>
+        <p>Actual Time Display in ReportsReports can now display ACTUAL Time In/Out for Skilled Nursing visits. To enable this, make sure the Time In and Time Out checkboxes are not selected in Question Settings.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Question Settings → Skilled Nursing (Visit) → Ensure the Time In and Time Out checkboxes are UNCHECKED</p>
+        <p>9-Digit Medicaid ZIP Code You can now enter a 9-digit Medicaid ZIP Code in the Agency Information, making it easier to maintain complete Medicaid information.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Agency Information</p>
+        <p>Progress Notes in Monthly Timesheet PDF Monthly Timesheet PDFs now include Progress Notes entered by caregivers during their shifts in the CareBravo app, giving you more complete visit documentation.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → View Client → Client Timesheet → Monthly Timesheet → Save PDF</p>
+        <p>Note: Progress Notes are pulled directly from the CareBravo app.</p>
+        <p>Medication Frequency &amp; Instructions Client Medication now supports frequency and instruction details, making it easier to document when and how medications should be administered..👉 How to Use: Action → View Client → Client Medication</p>
+        <p class="upd-kicker">Improvements</p>
+        <p>Notes in Approve ShiftsYou can now add &amp; view Notes directly from the Approve Shifts while reviewing and approving shifts.</p>
+        <p class="upd-howto"><b>How to Use:</b> Calendar → Approve Shift → Edit Shift</p>
+        <p class="upd-tip">Helping you manage time tracking, documentation, and shift approvals with greater accuracy and efficiency.</p>
+          </div>
+        </details>
+        </div>
+      </div>
+
+      <div class="upd-group">
+        <h2 class="upd-month">June 2026</h2>
+        <div class="updates">
+        <details class="upd-entry" data-tags="Reporting &amp; Visibility|Documentation &amp; Care Plans">
+          <summary>
+            <span class="upd-date">Jun 26, 2026</span>
+            <span class="upd-title">More Control, Better Reports &amp; Extended Care Plan Enhancements</span>
+            <span class="upd-tags"><span class="chip small">Reporting &amp; Visibility</span><span class="chip small">Documentation &amp; Care Plans</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency owners admin</p>
+            <p class="lead">We've introduced new configuration options, reporting improvements, and Extended Care Plan updates to help simplify daily operations and provide greater flexibility across CareBravo..</p>
+            <p class="upd-kicker">New Feature</p>
+        <p>Hide Miles &amp; Expenses in CareBravo App You can now choose to hide Miles and Expenses from caregivers in the mobile app through Agency Settings.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Agency Settings → Miles Section → Enable "Hide Miles &amp; Expenses”</p>
+        <p>Pre-Populate Supervisory Visit Data A new setting allows Supervisory Visit forms in the mobile app to automatically populate data from previous visits, helping reduce manual entry.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Agency Settings → Reports Configuration → Pre-Populate Supervisory Visit Data</p>
+        <p>Additional Information in Extended Care Plan The Extended Care Plan now includes additional information such as: • Schedule Information • Tracheostomy &amp; Vent Details</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Shifts Section → Approvals - Assessor → Extended Care Plan</p>
+        <p>Note: Tracheostomy &amp; Vent details are automatically pulled from the mobile app assessment records</p>
+        <p class="upd-kicker">Improvements</p>
+        <p>Calendar Type Report Pagination Pagination options have been expanded to 500 and 1000 records per page, making it easier to review large volumes of data.</p>
+        <p class="upd-howto"><b>How to Use:</b> Reports → Calendar Type Report</p>
+        <p>Invoice File &amp; Medicaid File Pagination Invoice File and Medicaid File reports now support pagination options of 500, 1000, and All records for easier report review.</p>
+        <p class="upd-howto"><b>How to Use:</b> Reports → Invoice File / Medicaid File</p>
+        <p class="upd-tip">Helping you manage settings, reports, and care plans with greater flexibility and visibility.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Reporting &amp; Visibility">
+          <summary>
+            <span class="upd-date">Jun 22, 2026</span>
+            <span class="upd-title">Find Information Faster with These New Updates</span>
+            <span class="upd-tags"><span class="chip small">Reporting &amp; Visibility</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency owners admin</p>
+            <p class="lead">We've introduced a new Task Report, Search enhancements and Caregiver Notes to help you find information faster and stay on top of daily activities.</p>
+            <p class="upd-kicker">New Feature</p>
+        <p>Task Report A new Task Report is now available, allowing you to view all tasks created from the Dashboard.</p>
+        <p class="upd-howto"><b>How to Use:</b> Reports → Task Report</p>
+        <p>Dashboard Task Filters You can now filter dashboard tasks by status. Available Filters: All Not Started In Progress Waiting</p>
+        <p class="upd-howto"><b>How to Use:</b> Dashboard → Tasks</p>
+        <p>Enhanced Search Across View Screens A new search bar has been added to View Client, Caregiver, Assessor, Prospect, Case Manager, and Homecare screens. The search checks across all visible columns.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → View Client / Caregiver / Assessor / Prospect / Case Manager / Homecare</p>
+        <p>View Caregiver Notes Section A dedicated Notes section has been added to View Caregiver, making it easier to review notes from the mobile app and interactions.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → View Caregiver → Notes</p>
+        <p>Client Document Management Report Merged documents now open in a new tab and are automatically downloaded, making it easier to access and save client documents.</p>
+        <p class="upd-howto"><b>How to Use:</b> Reports → Client Document Management</p>
+        <p>Client Interaction Report Category Filter A new Category filter has been added to the Client Interaction Report, allowing you to quickly view interactions for a specific category.</p>
+        <p class="upd-howto"><b>How to Use:</b> Reports → Client Interaction Report</p>
+        <p class="upd-tip">Helping you find information faster and stay organized throughout the day.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Scheduling &amp; Payroll">
+          <summary>
+            <span class="upd-date">Jun 19, 2026</span>
+            <span class="upd-title">New Calendar Visibility Features Are Here</span>
+            <span class="upd-tags"><span class="chip small">Scheduling &amp; Payroll</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency owners admin</p>
+            <p class="lead">Managing schedules is now easier with new calendar enhancements that provide better visibility into shift status, signatures, notes, and attendance details.</p>
+            <p class="upd-kicker">New Feature</p>
+        <p>Shift Approval Indicators Approved Ⓐ, Scheduled Billing Ⓑ, and Scheduled Payroll Ⓟ indicators are now visible in Calendar, Calendar Month View, and Calendar Type Report.</p>
+        <p class="upd-howto"><b>How to Use:</b> Reports → Calendar Type Report → Enter Date Range &amp; other details→ Run Report</p>
+        <p>Calendar → Select Shift Calendar Month View→ Select Shift</p>
+        <p>Clock-In &amp; Clock-Out Reason VisibilityClock-in and clock-out reasons are now visible directly from the shift popup in calendar.</p>
+        <p class="upd-howto"><b>How to Use:</b> Calendar → Select Shift → Popup</p>
+        <p>Calendar → Go to list view → Location Column → Notes icon</p>
+        <p>Client &amp; Caregiver/Assessor Signature Status Calendar shift popups now show whether Client and Caregiver/ Client and Assessor signatures have been completed in the mobile app during the shift</p>
+        <p class="upd-howto"><b>How to Use:</b> Calendar → Select Shift</p>
+        <p>Caregiver Shift Notes in CalendarView caregiver shift notes directly from the shift popup, including notes added through the mobile app and interactions.</p>
+        <p class="upd-howto"><b>How to Use:</b> Calendar → Select Shift → Notes</p>
+        <p>Broadcast Enhancements with Client &amp; Caregiver SkillsClient preferences and caregiver key skills are now visible while broadcasting shifts, helping you make better assignment decisions.</p>
+        <p class="upd-howto"><b>How to Use:</b> Calendar → Broadcast Shift</p>
+        <p class="upd-tip">Helping you manage schedules with greater visibility and confidence.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Documentation &amp; Care Plans|Mobile App">
+          <summary>
+            <span class="upd-date">Jun 19, 2026</span>
+            <span class="upd-title">New Mobile App Features Are Here</span>
+            <span class="upd-tags"><span class="chip small">Documentation &amp; Care Plans</span><span class="chip small">Mobile App</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency owners admin</p>
+            <p class="lead">We've introduced several updates to make it easier to find records inactive and active, manage programs name, and review reports in CareBravo.</p>
+            <p class="upd-kicker">New Feature</p>
+        <p>Caregiver Unavailability Caregivers can now mark their unavailable dates directly from the CareBravo app, helping agencies manage schedules more effectively.</p>
+        <p class="upd-howto"><b>How to Use:</b> CareBravo App → Calendar → + Icon → Select Date → Enter Reason → SaveWatch video</p>
+        <p>AI Bot Assistance A new App Bot is now available on all screens in the CareBravo app. You can quickly ask questions, get guidance while using the app, and connect with Customer Support whenever you need help.</p>
+        <p class="upd-howto"><b>How to Use:</b> CareBravo App → App Bot icon in the bottom-left → ask or connect</p>
+        <p class="upd-kicker">Improvements</p>
+        <p>Tracheostomy &amp; Vent Recording A new option has been added to record Tracheostomy and Vent information during Initial Assessments and Supervisory Visits..</p>
+        <p class="upd-howto"><b>How to Use:</b> Initial Assessment / Supervisory Visit → Examination → Cardio &amp; Pulmonary → Record Tracheostomy &amp; Vent</p>
+        <p>Treatment by Other AgencyYou can now record treatment provided by another agency during the assessment process.</p>
+        <p class="upd-howto"><b>How to Use:</b> Initial Assessment → Current Medical → Treatment by Other Agency</p>
+        <p>Medication SkillsA new Medication Skills section has been added to help document medication-related skills during assessments.</p>
+        <p class="upd-howto"><b>How to Use:</b> Initial Assessment → History → Medical → Medication Skills</p>
+        <p>Assessor Signature Date Selection Assessors can now select the signature date while signing, making it easier to record the correct signing date.</p>
+        <p class="upd-howto"><b>How to Use:</b> Clock in → Complete Tasks → Sign with dates → Clock Out</p>
+        <p class="upd-tip">Helping you manage schedules, reminders, and assessments with greater visibility and flexibility.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Reporting &amp; Visibility">
+          <summary>
+            <span class="upd-date">Jun 15, 2026</span>
+            <span class="upd-title">New Features &amp; Enhancements Are Here</span>
+            <span class="upd-tags"><span class="chip small">Reporting &amp; Visibility</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency owners admin</p>
+            <p class="lead">We've introduced several updates to make it easier to find records inactive and active, manage programs name, and review reports in CareBravo.</p>
+            <p class="upd-kicker">New Feature</p>
+        <p>Status dropdown in Caregiver Report &amp; Employee Report You can now view Active, Inactive, or All caregivers/assessors in reports.Filter By selecting Inactive/Inactive / All records from Status dropdown</p>
+        <p class="upd-howto"><b>How to Use:</b> Reports → Caregiver Report / Employee Report → Status → Select Active, Inactive, or All</p>
+        <p>Active &amp; Inactive Clients &amp; Assessors in Approval Assessor Inactive clients and assessors will now appear in the Approval Assessor section, making it easier to search and review past records.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Approval Assessor → Select Type → Assessor / Client Dropdown</p>
+        <p>Program Name Screen Enhancements You can now View, Edit, and Delete programs directly from the Program Name.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Configuration Section→ Program Name → Select Program→ View, Edit, or Delete</p>
+        <p>New Columns Added in View ClientTwo new columns have been added to View Client: • Monthly Hours • Date of Referral</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → View Client</p>
+        <p>Note: Date of Referral is pulled from Action →View Client →Important Dates → Date of Referral.</p>
+        <p class="upd-kicker">Improvements</p>
+        <p>Calendar Type Report Status Indicators The Calendar Type Report now shows Approved, Invoice, and Payroll indicators based on shift status.</p>
+        <p class="upd-howto"><b>How to Use:</b> Reports → Calendar Type Report → Select Date Range → Run Report</p>
+        <p class="upd-tip">Helping you manage schedules, reminders, and assessments with greater visibility and flexibility.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Scheduling &amp; Payroll|Reporting &amp; Visibility">
+          <summary>
+            <span class="upd-date">Jun 11, 2026</span>
+            <span class="upd-title">New Reminder Reports, Calendar Enhancements &amp; Assessment Updates Are Here</span>
+            <span class="upd-tags"><span class="chip small">Scheduling &amp; Payroll</span><span class="chip small">Reporting &amp; Visibility</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency owners admin</p>
+            <p class="lead">Managing schedules, reminders, and assessments is now easier with new reporting and calendar enhancements in CareBravo.</p>
+            <p class="upd-kicker">New Feature</p>
+        <p>Location Set for Assessor. View Assessor clock-in and clock-out locations directly in Calendar List View. You can also select a location and use drag-and-drop to set location</p>
+        <p class="upd-howto"><b>How to Use:</b> Calendar → Go To List View → LocationOrCalendar→ Shift pop-up→Clock In(distance) / Clock Out(distance)→Location</p>
+        <p>Caregiver Reminder Dates Report Generate a report of reminders created for caregivers and track follow-up activities more easily.</p>
+        <p class="upd-howto"><b>How to Use:</b> Reports → Caregiver Reminder Dates Report → Select Date Range → Run Report</p>
+        <p>Note: Displays reminders created from Action → View Caregiver → Reminder.</p>
+        <p>Client Reminder Dates Report Generate a report of reminders created for clients and keep track of important follow-ups</p>
+        <p class="upd-howto"><b>How to Use:</b> Reports → Client Reminder Dates Report → Select Date Range → Run Report</p>
+        <p>Note: Displays reminders created from Action → View Client → Reminder.</p>
+        <p>Caregiver Monthly CalendarView and save a caregiver's monthly schedule as a PDF for easy sharing and reference.</p>
+        <p class="upd-howto"><b>How to Use:</b> Calendar → Select Caregiver Radio Button → View Monthly → Scroll Down → Save as PDF</p>
+        <p class="upd-kicker">Improvements</p>
+        <p>Nurse Assessment Date Range Enhancement The RN Assessment date range has been extended to support up to 365 days.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → View Client → Nurse Assessment → RN Assessment → Select Date Range</p>
+        <p class="upd-tip">Helping you manage schedules, reminders, and assessments with greater visibility and flexibility.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Scheduling &amp; Payroll|Reporting &amp; Visibility">
+          <summary>
+            <span class="upd-date">Jun 5, 2026</span>
+            <span class="upd-title">Smarter Shift Approvals, Reminders &amp; Reporting Are Here</span>
+            <span class="upd-tags"><span class="chip small">Scheduling &amp; Payroll</span><span class="chip small">Reporting &amp; Visibility</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency owners admin</p>
+            <p class="lead">Managing shifts, caregiver activities, and reports requires quick access to the right information. To help simplify daily operations and improve visibility, we've introduced several updates across CareBravo for Shift Approvals Visibility, Reminders, Calendar List View, and Client Interaction Report.</p>
+            <p class="upd-kicker">New Feature</p>
+        <p>Shift Approval &amp; Pagination Enhancements The Approve Shift screen now includes Schedule Hours and Actual Hours columns, helping you quickly compare planned and worked hours before approving shifts. Pagination options have also been expanded to 500 and 1000 records per page, making it easier to review large volumes of shifts.</p>
+        <p class="upd-howto"><b>How to Use:</b> Calendar → Approve Shift OrAction → Approve Shift</p>
+        <p>Caregiver Location Visibility in Calendar List View You can now view caregiver clock-in and clock-out geo-locations directly in Calendar List View, providing quicker visibility into where visits started and ended.</p>
+        <p class="upd-howto"><b>How to Use:</b> Calendar → Go To List View</p>
+        <p>CareBravo Reminders for Clients, Caregivers &amp; Assessors You can now create reminders for caregivers directly from CareBravo. These reminders appear on the caregiver's home screen in the mobile app, where they can be marked as Yes or No. The updated status is automatically reflected in CareBravo.</p>
+        <p class="upd-howto"><b>How to Use:</b> How to create &amp; view from CareBravo Web:</p>
+        <p>Action → View Client / View Caregiver/ View Assessor → Reminder From Mobile App:Home → Scroll Down → Reminders → View details Note: Reminders will only appear in the CareBravo App when the Show in CareBravo App checkbox is selected while creating the reminder.</p>
+        <p>Client Dropdown Added to Client Interaction Reports A new Client dropdown has been added to the Client Interaction Report, allowing you to generate reports for a specific client or for all clients within a selected date range.</p>
+        <p class="upd-howto"><b>How to Use:</b> Reports → Client Interaction Report → Client Dropdown → Apply Date Range → Generate Report</p>
+        <p class="upd-tip">Helping you manage shifts, caregivers, and reports with greater visibility and less effort.</p>
+        <p class="upd-howto"><b>How to use:</b> Try it in your next workflow.</p>
+          </div>
+        </details>
+        </div>
+      </div>
+
+      <div class="upd-group">
+        <h2 class="upd-month">May 2026</h2>
+        <div class="updates">
+        <details class="upd-entry" data-tags="Reporting &amp; Visibility">
+          <summary>
+            <span class="upd-date">May 29, 2026</span>
+            <span class="upd-title">Enhanced Listing View for Faster Navigation</span>
+            <span class="upd-tags"><span class="chip small">Reporting &amp; Visibility</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Case Managers</p>
+            <p class="lead">Managing records across clients, employees, assessors, and prospects can become time-consuming when important information is spread across multiple sections. To make navigation easier and improve visibility, we’ve introduced the Enhanced Listing View in CareBravo.</p>
+            <p class="upd-kicker">New Feature</p>
+        <p>Enhanced Listing View This feature improves listing visibility across Client, Employee, Assessor, and Prospect sections. Why It Matters: • Quickly find and manage records across different modules • Faster navigation for day-to-day operations • Reduced effort and improved efficiency</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → View Client (or  Employee / Assessor / Prospect) → Access the updated listing view</p>
+        <p class="upd-tip">Designed to make daily navigation faster, simpler, and more organized.</p>
+        <p class="upd-howto"><b>How to use:</b> Try it in your next workflow.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Scheduling &amp; Payroll">
+          <summary>
+            <span class="upd-date">May 27, 2026</span>
+            <span class="upd-title">Smarter Clock-In Controls &amp; Payroll Updates Are Here</span>
+            <span class="upd-tags"><span class="chip small">Scheduling &amp; Payroll</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency Owners &amp; Admin</p>
+            <p class="lead">Managing shifts, payroll, and attendance becomes easier when teams have better visibility and control. To help streamline daily operations, we’ve introduced new CareBravo updates for caregiver clock-in settings, payroll reporting, task visibility, and shift reminders</p>
+            <p class="upd-kicker">New Features</p>
+        <p>Enhanced Caregiver Clock-In &amp; Clock-Out ControlsYou can now configure how early or late caregivers are allowed to clock in and clock out for scheduled shifts directly from Agency Settings.Available Settings: Allow Caregivers to Clock-In Before Allow Caregivers to Clock-In After Allow Caregivers to Clock-Out Before Allow Caregivers to Clock-Out After</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Agency Settings</p>
+        <p>Improved Shift-Wise Task Visibility in Approval AssessorsIn Approval Assessors → Timesheet, task completion counts are now shown separately for each shift instead of a combined total for the full day. This makes it easier to track task completion accurately for every shift.👉 How to Use:Action → Approval Assessors → Timesheet → Select Range(Weekly)→ Client</p>
+        <p>Shift Reminder Notifications for Caregivers &amp; Assessors(In CareBravo App)App notifications will now help caregivers and assessors stay updated on scheduled shifts and reduce missed clock-ins and clock-outs.Notifications will be sent: 1 hour before shift start (if not Clocked In) 15 minutes before shift start (if not Clocked In) 15 minutes after shift start (if not Clocked In) 15 minutes before shift end (if Clocked In &amp; not Clocked Out) 15 minutes after shift end(if not Clocked Out)Note: Shift reminder notifications will not be sent to SFC caregivers.</p>
+        <p class="upd-kicker">Improvements</p>
+        <p>Payroll Export PDF EnhancementsGenerate Payroll exports will now display: Approved Amount Unapproved Amount Total Amount This provides better payroll visibility directly within exported PDFs.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Generate Payroll → Export to PDF</p>
+        <p class="upd-tip">Designed to give your team better visibility, tracking, and control across daily operations.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Reporting &amp; Visibility">
+          <summary>
+            <span class="upd-date">May 22, 2026</span>
+            <span class="upd-title">New Client Visibility &amp; Supervisory Visit Updates Are Here</span>
+            <span class="upd-tags"><span class="chip small">Reporting &amp; Visibility</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency Owners &amp; Admin</p>
+            <p class="lead">Keeping track of new clients and supervisory visit details is important for smooth day-to-day operations. To help your team stay more organized and informed, we’ve introduced new updates in CareBravo for better client visibility and supervisory visit management.</p>
+            <p class="upd-kicker">New Features</p>
+        <p>New Client List Now Visible for 30 DaysRecently added clients will now remain visible in the Dashboard New Clients Alert for 30 days, making it easier to track and manage new admissions.</p>
+        <p class="upd-howto"><b>How to Use:</b> Dashboard → Alerts → New Clients</p>
+        <p>Supervisory Visit Type Added in SV Start TabAssessors can now select the Supervisory Visit Type during the shift from the SV Start tab in the Supervisory Visit app flow. The selected visit type Supervisory Visit Type will now appear in Approve Shifts, Approval Assessors and Reports.</p>
+        <p class="upd-kicker">Improvements</p>
+        <p>View Client List improvements for better visibility of Start of Case and Initial Contact Date columns.</p>
+        <p class="upd-tip">Helping your team stay informed, organized, and on schedule.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Reporting &amp; Visibility">
+          <summary>
+            <span class="upd-date">May 20, 2026</span>
+            <span class="upd-title">New ICWP Reports Are Now Available in CareBravo</span>
+            <span class="upd-tags"><span class="chip small">Reporting &amp; Visibility</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Case Managers</p>
+            <p class="lead">We’re continuing to make ICWP documentation easier and more organized for your team.New ICWP Reports are now available in CareBravo, allowing you to generate and upload reports directly from the mobile app after shift completion.</p>
+            <p class="upd-kicker">New Feature: 14 New Reports in ICWP</p>
+        <p>The following ICWP reports are now available in CareBravo: Appendix B Appendix C Appendix D4 Appendix D5 Appendix F Appendix H1 Appendix H2 Appendix H3 Appendix I Appendix N Appendix Y Appendix Z Georgia Advance Directive for Health Care Verification Physician's Recommendation After shift completion, generate reports from the app by selecting the required report checkboxes and upload them. Once uploaded and clocked out, these reports become visible in CareBravo Web for viewing and downloading anytime. Why It Matters: Makes ICWP documentation easier Gives quick access to completed reports Keeps reports organized</p>
+        <p class="upd-howto"><b>How to Use:</b> From Mobile App:Clock In → Complete Shift → Add Signature → Clock Out → Mark as Complete → Generate Report → Select Required Reports  → Upload</p>
+        <p>To View &amp; Download from CareBravo Web:Action → View Client → Select Client → View Client Documents</p>
+        <p>Note: Reports will only be visible after the shift is completed with signatures, the reports are generated, and uploaded from the mobile app</p>
+        <p class="upd-tip">Making ICWP documentation simpler, faster, and easier to manage</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Scheduling &amp; Payroll">
+          <summary>
+            <span class="upd-date">May 16, 2026</span>
+            <span class="upd-title">New CareBravo Features to Save You Time Every Day</span>
+            <span class="upd-tags"><span class="chip small">Scheduling &amp; Payroll</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency Owners &amp; admins</p>
+            <p class="lead">From following up on pending invoices to checking shift notes and updating caregiver information, everyday admin tasks can take up valuable time. To make daily workflows smoother and faster, we’ve introduced new updates designed to simplify invoice management, shift approvals, and caregiver records in CareBravo.</p>
+            <p class="upd-kicker">New Features</p>
+        <p>• Pending Invoice AlertStay on top of pending invoices directly from the Dashboard Alerts section. Easily view client, shift, and care plan details along with a direct option to generate invoices.</p>
+        <p class="upd-howto"><b>How to Use:</b> Dashboard → Alerts → Pending Invoices</p>
+        <p>• Other Contacts for CaregiversKeep caregiver information more organized by adding and managing additional contacts directly from the caregiver profile.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → View Caregiver → Other Contacts</p>
+        <p>• Notes Section Under Approve ShiftsApprove Shift now includes a Notes section for quickly viewing shift notes directly from the table.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Shift Section → Approve Shift → Select Date Range → View Notes</p>
+        <p>• Delete Cancelled Caregiver ShiftsCancelled caregiver shifts can now be deleted when no longer needed.</p>
+        <p class="upd-howto"><b>How to Use:</b> Go to Calendar → Select Cancelled Shifts → Delete Shift💡 Making everyday tasks simpler, faster, and easier to manage.</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Reporting &amp; Visibility">
+          <summary>
+            <span class="upd-date">May 14, 2026</span>
+            <span class="upd-title">New ICWP Reports Are Here!</span>
+            <span class="upd-tags"><span class="chip small">Reporting &amp; Visibility</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Case Managers</p>
+            <p class="lead">Managing ICWP paperwork after visits can take extra time and follow-up. Authorization Consent &amp; Visitation Contact Report can directly be uploaded after shift completion from mobile app, making it easier to view and download the reports from CareBravo.</p>
+            <p class="upd-kicker">New Feature: Two New Reports in ICWP</p>
+        <p>• Authorization Consent• Visitation ContactAfter shift completion, generate reports from the app by selecting the Authorization Consent and Visitation Contact report checkboxes and upload them. Once uploaded and clocked out, these reports become visible in CareBravo Web for viewing and downloading anytime. Why It Matters: Makes ICWP documentation easier Gives quick access to completed reports Keeps reports organized</p>
+        <p class="upd-howto"><b>How to Use:</b> From Mobile App:Clock In → Complete Shift → Add Signature → Clock Out → Generate Report → Select Reports(Authorization Consent and Visitation Contact)  → Upload</p>
+        <p>To View &amp; Download from CareBravo Web:Action → View Client → Select Client → View Client Documents</p>
+        <p>Note: Reports will only be visible after the shift is completed with signatures, the reports are generated, and uploaded from the mobile app</p>
+        <p class="upd-tip">Making it easier for you to manage</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Scheduling &amp; Payroll">
+          <summary>
+            <span class="upd-date">May 8, 2026</span>
+            <span class="upd-title">Geo-Fence Clock In/Out Made Simple</span>
+            <span class="upd-tags"><span class="chip small">Scheduling &amp; Payroll</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency Owners and Team</p>
+            <p class="lead">Ensuring accurate clock in and clock out is essential for reliable visit tracking. With Geo-Fencing, you can now control and monitor where assessors and caregivers mark their clock in and clock out.</p>
+            <p class="upd-kicker">New Feature</p>
+        <p>Geo-Fence Clock In/Out for Assessors You can now enforce location-based clock in/out by setting geo-fence rules for assessors. Enable “Alert assessor and record reason for clock in/out outside the geo-fence”It requires a reason to be entered in the mobile app when clocking in or out outside the allowed location Enable “Do not allow assessor outside the geo-fence”It restricts clock in/out unless the user is within the defined distance</p>
+        <p>Why It Matters: Ensures clock in/out happens at the correct client location Improves accountability and visit accuracy Reduces incorrect or remote check-ins.</p>
+        <p class="upd-howto"><b>How to Use:</b> Action → Agency Setting → Assessor Geo Fence → Select checkbox → Save</p>
+        <p class="upd-kicker">Improvements</p>
+        <p>You can now delete multiple client documents with a single click</p>
+        <p class="upd-tip">Making attendance tracking more precise and dependable.</p>
+        <p class="upd-howto"><b>How to use:</b> Configure your geo-fence settings now!</p>
+          </div>
+        </details>
+        <details class="upd-entry" data-tags="Billing &amp; Invoicing">
+          <summary>
+            <span class="upd-date">May 6, 2026</span>
+            <span class="upd-title">New Feature Alert: Cost Sharing Setup &amp; Workflow</span>
+            <span class="upd-tags"><span class="chip small">Billing &amp; Invoicing</span></span>
+          </summary>
+          <div class="upd-body">
+            <p class="upd-audience">For: Agency Owners and Team</p>
+            <p class="lead">Cost sharing makes it easy to manage payments. Set the client’s responsibility, clearly see what Medicaid covers, and collect the client’s share using stored payment details.All in one seamless workflow.</p>
+            <p class="upd-kicker">New Feature</p>
+        <p>Cost Sharing Setup &amp; Workflow You can now enable cost sharing by configuring client responsibility and adding a payment vault directly within the client profile. Why It Matters: Simplifies cost sharing setup for clients Ensures accurate and seamless payment processing Reduces manual effort.</p>
+        <p class="upd-howto"><b>How to Use:</b> Go to Action → View Client → Payer →Add Medicaid Payer → Set Client Responsibility →Vault → Add Client’s Card</p>
+        <p>Approve Shift → Action → Generate Invoice → Go to Invoice History → Select Client &amp; Shift → Make Payment</p>
+        <p class="upd-kicker">Improvements</p>
+        <p>Select All checkbox added in Approve Shifts for bulk actions Assessor Shift Call Type flow enhanced for better usability and accuracy</p>
+        <p class="upd-tip">This update is designed to help you manage cost sharing and shifts more efficiently with fewer steps.</p>
+          </div>
+        </details>
+        </div>
+      </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <h2>See what CareBravo could take off your desk.</h2>
+    <p class="lead">The Calculator maps your CareDrain™ across all nine functions and shows where the work should leave your desk first.</p>
+    <div class="btns"><a class="pill dark" href="/calculate">See What's Draining Your Agency →</a></div>
+    <p class="quiet">Nobody calls unless you ask.</p>
+  </div>
+</section>
+
+<div data-include="/components/footer.html"></div>
+
+<script>
+/* /updates — page-local filter script, inline by request. Same IIFE/DOMContentLoaded pattern
+   as js/main.js but scoped entirely to this page; nothing here is shared with or loaded by any
+   other page. Toggles [hidden] on entries by data-tags — entries stay in the DOM and expandable
+   via native <details> with JS off, so the page degrades to "everything, always visible" rather
+   than breaking. */
+(function () {
+  function init() {
+    var bar = document.querySelector('.upd-filter');
+    if (!bar) return;
+    var chips = [].slice.call(bar.querySelectorAll('.filter-chip'));
+    var groups = [].slice.call(document.querySelectorAll('.upd-group'));
+    var empty = document.querySelector('.upd-empty');
+
+    function apply(filter) {
+      var anyVisible = false;
+      groups.forEach(function (group) {
+        var entries = [].slice.call(group.querySelectorAll('.upd-entry'));
+        var groupHasMatch = false;
+        entries.forEach(function (entry) {
+          var tags = (entry.dataset.tags || '').split('|');
+          var match = filter === 'all' || tags.indexOf(filter) !== -1;
+          entry.hidden = !match;
+          if (match) groupHasMatch = true;
+        });
+        group.hidden = !groupHasMatch;
+        if (groupHasMatch) anyVisible = true;
+      });
+      if (empty) empty.hidden = anyVisible;
+    }
+
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        chips.forEach(function (c) { c.classList.toggle('on', c === chip); });
+        apply(chip.dataset.filter);
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
+<script src="/js/main.js"></script>
+</body>
+</html>

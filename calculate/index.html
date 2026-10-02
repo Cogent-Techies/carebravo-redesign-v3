@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>See What's Draining Your Agency — CareDrain™ Calculator | CareBravo</title>
+<meta name="description" content="Four numbers about your agency, nine quick answers, and sixty seconds later you're reading the one report that shows exactly where the money is leaving, what next year looks like two different ways, and which of CareBravo's plans your map actually points to.">
+<link rel="canonical" href="https://carebravo.com/calculate">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://carebravo.com/calculate">
+<meta property="og:title" content="See What's Draining Your Agency — CareDrain™ Calculator | CareBravo">
+<meta property="og:description" content="Nothing here is an average. Every figure is computed from your answers — your CareDrain cost, your exit value gap, and which plan your map points to. Your agency's name on it.">
+<meta property="og:image" content="https://carebravo.com/og/calculate.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1A1A1A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
+<style>
+  /* main.js's boot() is async (awaits loadIncludes() before calling navColour()). A JS fix that
+     just sets the nav's class on load loses a race: it runs, then boot() finishes later and
+     reverts the class back to on-dusk, and since no scroll event fires on page load nothing
+     corrects it again until the user actually scrolls — exactly the bug reported. This page has
+     no dark hero at any of its four screens, so make on-dusk render identically to the readable
+     "scrolled" state here, regardless of which class wins that race. */
+  #nav.on-dusk{background:rgba(250,249,246,.92) !important;backdrop-filter:blur(12px);color:var(--ink) !important}
+  #nav.on-dusk .pill.cta{background:var(--ink) !important;color:#fff !important;border-color:var(--ink) !important}
+</style>
+<!-- SAMEAS: omitted from the #product node until the profiles are real. ADD BEFORE LAUNCH: LinkedIn company page, Georgia DCH vendor listing, Google Business Profile. Never a placeholder URL in live JSON-LD. -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://carebravo.com/#website",
+   "url": "https://carebravo.com",
+   "name": "CareBravo",
+   "description": "More than software for Medicaid home care agencies: the nine jobs of an agency, done on one record, on the Autonomous Care OS®.",
+   "publisher": { "@id": "https://caryfy.ai/#organization" },
+   "inLanguage": "en-US"
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://caryfy.ai/#organization",
+   "name": "Caryfy AI",
+   "url": "https://caryfy.ai",
+   "founder": { "@id": "https://anandchaturvedi.com/#person" }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://anandchaturvedi.com/#person",
+   "name": "Anand Chaturvedi",
+   "url": "https://anandchaturvedi.com"
+  },
+  {
+   "@type": ["SoftwareApplication", "Service"],
+   "@id": "https://carebravo.com/#product",
+   "name": "CareBravo",
+   "url": "https://carebravo.com"
+  },
+  {
+   "@type": "WebApplication",
+   "@id": "https://carebravo.com/calculate#app",
+   "name": "CareDrain™ Calculator",
+   "url": "https://carebravo.com/calculate",
+   "description": "An interactive calculator that shows a Medicaid home care agency owner exactly what the CareDrain vectors are costing them in daily margin and suppressed exit value, computed from the agency's own numbers — not industry averages.",
+   "applicationCategory": "BusinessApplication",
+   "browserRequirements": "Requires JavaScript.",
+   "isPartOf": { "@id": "https://carebravo.com/#website" },
+   "about": { "@id": "https://carebravo.com/#product" },
+   "provider": { "@id": "https://caryfy.ai/#organization" }
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://carebravo.com/calculate#webpage",
+   "url": "https://carebravo.com/calculate",
+   "name": "See What's Draining Your Agency — CareDrain™ Calculator",
+   "isPartOf": { "@id": "https://carebravo.com/#website" },
+   "about": { "@id": "https://carebravo.com/calculate#app" },
+   "author": { "@id": "https://caryfy.ai/#organization" },
+   "reviewedBy": { "@id": "https://anandchaturvedi.com/#person" },
+   "datePublished": "2026-09-19",
+   "dateModified": "2026-09-19",
+   "inLanguage": "en-US",
+   "breadcrumb": { "@id": "https://carebravo.com/calculate#breadcrumb" }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://carebravo.com/calculate#breadcrumb",
+   "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "CareBravo", "item": "https://carebravo.com/" },
+    { "@type": "ListItem", "position": 2, "name": "CareDrain Calculator", "item": "https://carebravo.com/calculate" }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<div data-include="/components/header.html"></div>
+
+<div class="calc">
+
+<!-- ================= INTRO ================= -->
+<section class="screen block active" id="intro">
+  <div class="wrap">
+    <p class="kicker">The CareDrain™ Calculator</p>
+    <h1>See what's draining your agency.</h1>
+    <p class="lead">Four numbers about your agency, nine quick answers, and sixty seconds later you are reading the one report no system you own has ever been able to run — where the money is leaving, what next year looks like two different ways, and which of CareBravo's plans your map actually points to. Your agency's name on it.</p>
+    <p class="plannote" id="planNote" style="display:none"></p>
+    <div class="btns"><button class="pill dark" id="startBtn" type="button" data-cta="start">See What's Draining Your Agency →</button></div>
+    <div class="bleedline">
+      <div><b>YOUR NUMBERS</b>Nothing here is an average. Every figure is computed from your answers.</div>
+      <div><b>FOUR MINUTES</b>Four numbers, nine answers. If something interrupts you, your answers are saved.</div>
+      <div><b>NO MEETING</b>This asks you for nothing and books you into nothing. The report is yours.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STEP 1 · THE FOUR NUMBERS ================= -->
+<section class="screen block" id="step1" hidden>
+  <div class="wrap">
+    <div class="stepbar"><i class="on"></i><i></i><i></i></div>
+    <p class="kicker">Step 1 of 3</p>
+    <h2>The four numbers.</h2>
+    <p class="lead">Close is fine. The report tells you exactly how each number is used.</p>
+    <p class="plannote" id="planNoteStep1" style="display:none"></p>
+    <form id="f1" novalidate>
+      <div class="fgrid">
+        <div class="field"><label for="agency">Your agency's name <span class="hint">— it goes on the report</span></label><input id="agency" autocomplete="organization" placeholder="e.g., Magnolia Home Care"></div>
+        <div class="field"><label for="state">State</label>
+          <select id="state"><option value="">Select…</option></select></div>
+        <div class="field"><label for="rev">1 · Monthly billed revenue <span class="hint">— what you bill, not what has arrived</span></label><div class="money"><input id="rev" type="text" inputmode="numeric" placeholder="32,000"></div></div>
+        <div class="field"><label for="cg">2 · Caregivers on your schedule</label><input id="cg" type="text" inputmode="numeric" placeholder="14"></div>
+        <div class="field"><label for="office">3 · People doing office work <span class="hint">— schedulers, billers, HR — count yourself if that's you</span></label><input id="office" type="text" inputmode="decimal" placeholder="2"></div>
+        <div class="field"><label for="sw">4 · Monthly software &amp; tools spend <span class="hint">— scheduling, EVV, billing, HR, everything</span></label><div class="money"><input id="sw" type="text" inputmode="numeric" placeholder="900"></div></div>
+      </div>
+      <p class="formerr" id="err1"></p>
+      <div class="formfoot"><button class="pill dark" type="submit" data-cta="step1-next">Next: your nine functions →</button><span class="quiet">Your answers stay on this page until you choose to get your report.</span></div>
+    </form>
+  </div>
+</section>
+
+<!-- ================= STEP 2 · THE NINE ================= -->
+<section class="screen block" id="step2" hidden>
+  <div class="wrap">
+    <div class="stepbar"><i class="on"></i><i class="on"></i><i></i></div>
+    <p class="kicker">Step 2 of 3</p>
+    <h2>Nine functions run your agency. Where does each one live — and how does it feel?</h2>
+    <p class="lead">Answer fast. Your first instinct is the accurate one.</p>
+    <form id="f2" novalidate><div id="fnlist"></div>
+      <div class="hours">
+        <label for="ohours">One last question. In a normal week, how many hours do <em>you personally</em> spend covering shifts, fixing schedules, chasing claims, or doing paperwork?</label>
+        <div style="display:flex; align-items:center; gap:14px;"><input type="range" id="ohours" min="0" max="60" value="20" step="1"><output id="ohoursOut" for="ohours">20 hrs</output></div>
+        <p class="quiet">This is the number a buyer would ask about first. It has a name on your report.</p>
+      </div>
+      <p class="formerr" id="err2"></p>
+      <div class="formfoot"><button class="pill dark" type="submit" data-cta="step2-submit">Show me my drain map →</button></div>
+    </form>
+  </div>
+</section>
+
+<!-- ================= REPORT ================= -->
+<section class="screen block" id="report" hidden>
+  <div class="wrap">
+    <div class="letterhead">
+      <div class="to"><span>Prepared for <b id="rAgency">—</b> · <span id="rState">—</span></span><span id="rDate">—</span><span>CareDrain™ report · v0.9-draft</span></div>
+      <div class="rptitle" id="rHeadline">Your drain map.</div>
+      <p class="rpsub">Five ways the same broken setup drains your agency today and quietly limits what it's worth tomorrow. Computed from your answers — nothing here is an average.</p>
+
+      <!-- 1 · drain map (free) -->
+      <div class="secband"><span class="n">I</span><h2>Where it's draining</h2></div>
+      <div id="drainbars"></div>
+      <div class="finding" id="hardline"></div>
+      <div class="finding" id="o6line" style="display:none;"></div>
+
+      <!-- gate -->
+      <div class="gate" id="gate">
+        <h3>The rest of your report is ready.</h3>
+        <p>Behind this line: the dollar figure of the drain, your EBITDA estimate, next year run two ways under a ten percent rate cut, the way of working together your map points to, and your thirty-day plan. We send the report to you, and it stays yours.</p>
+        <div class="row">
+          <input id="gName" placeholder="Your name" autocomplete="name">
+          <input id="gEmail" type="email" placeholder="Email for your report" autocomplete="email">
+          <button class="pill dark" id="gateBtn" type="button" data-cta="gate-submit">Open my full report →</button>
+        </div>
+        <p class="err" id="gateErr">A name and a working email — that's all this needs.</p>
+        <p class="quiet">No calendar link is behind this button. Just your numbers.</p>
+      </div>
+
+      <!-- locked content -->
+      <div class="locked" id="locked">
+
+        <div class="secband"><span class="n">II</span><h2>What it costs, in dollars</h2></div>
+        <div class="stamp"><div class="lbl">Time your caregivers lose to screens and paperwork — up to 8 hours per week each<small>Source: BMC Geriatrics, Ausserhofer et&nbsp;al., 2023. About $4,800 per caregiver per year.</small></div><div class="val" id="vScreen">—</div></div>
+        <div class="stamp" style="margin-top:14px;"><div class="lbl">The full yearly cost of running your agency on disconnected systems — the Tangleware™ Tax: lost time, software bills, and the hours your office spends carrying data between tools by hand<small>A range, because part of it depends on how your office absorbs the gaps. The methodology note at the end shows every assumption.</small></div><div class="val" id="vTtax">—</div></div>
+
+        <div class="secband"><span class="n">III</span><h2>The same agency, next year, two ways</h2></div>
+        <p class="quiet" style="margin-bottom:14px;">Both columns assume the same thing: your rate drops ten percent. Only the cost structure changes. Estimated EBITDA today: <b id="vEbitda">—</b>.</p>
+        <div class="futures">
+          <div class="fut a"><div class="tag">Future A · nothing changes</div><div class="big" id="vFutA">—</div><p>The cut lands on your current cost structure. The drain keeps its share.</p></div>
+          <div class="fut h"><div class="tag">Future B · the nine run themselves</div><div class="big" id="vFutB">—</div><p>The same cut lands on a business where the work is delivered instead of operated — after paying for that delivery.</p></div>
+        </div>
+        <div class="stamp green" style="margin-top:14px;"><div class="lbl">What that yearly difference is worth if you ever choose to sell<small>Agencies in this industry change hands at roughly four to six times EBITDA. Whether you ever sell is your decision, and only yours. This line exists so the choice does.</small></div><div class="val" id="vGap">—</div></div>
+
+        <div class="secband"><span class="n">IV</span><h2>One question, four honest answers</h2></div>
+        <p class="quiet" style="margin-bottom:16px;">How much of the work do you want to carry? Your map points to one answer — marked below. Diagnosed against your answers, not sold up.</p>
+        <div class="modes" id="modeCards"></div>
+        <p class="modefine">The rates apply to billed revenue and are never added together — <b>7.97% is the most anyone ever pays</b>. There is no menu of add-ons, because a function pulled out of the nine stops being accountable. Before you are billing, there is no cost at all. And when a claim fails, our team corrects the error codes and rebills at no extra cost — a corrected resubmission is charged once per claim, never per submission.</p>
+        <p class="modefine" id="modeNote"></p>
+
+        <!-- Section V (Your thirty days) intentionally hidden per product decision (ported unchanged from staging) -->
+        <div style="display:none" aria-hidden="true">
+          <div class="secband"><span class="n">V</span><h2>Your thirty days</h2></div>
+          <div class="plan" id="planBox"></div>
+        </div>
+
+        <div class="report-cta">
+          <p class="lead" style="margin-top:0">Each of the nine functions has its own four-minute walkthrough — the work running, not a tour. Start with the one your map marked darkest.</p>
+          <div class="btns"><a class="pill dark" href="/results" id="watchBtn" data-cta="watch-outcome">Watch the Outcome that matches your hardest week</a></div>
+        </div>
+
+        <details class="method"><summary>How every number was computed</summary>
+          <div class="inner" id="methodBox"></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /.calc -->
+
+<!-- Netlify Forms detection — this page never renders this form; it exists only so Netlify's
+     build-time form parser registers "caredrain-calculator", matching the fallback path in the
+     submit handler below (same dual-path pattern already used on /pricing's plan modal). -->
+<form name="caredrain-calculator" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input name="agency_name"><input name="state"><input name="email"><input name="contact_name">
+  <input name="monthly_billed"><input name="caregiver_count"><input name="owner_hours_week">
+  <input name="recommended_mode_name"><input name="mode_rate"><input name="first_touch_source">
+  <input name="bot-field">
+</form>
+
+<div data-include="/components/footer.html"></div>
+
+<script>
+/* ============ CareDrain Calculator ============
+   Business logic (REG, FUNCS, SYS/FEEL/CAPQ, compute(), render(), buildPayload()) is unchanged
+   from the working staging version — same constants, same formulas, same recommendation
+   engine. Only additions: reading ?plan= from the URL (used for the on-screen note and to
+   annotate the submission's existing first_touch_source field — no new Supabase column), and
+   a Netlify Forms fallback on the gate submission, matching the pattern already used by
+   /pricing's plan modal. See the report's "Business-rule flag" for the one thing NOT resolved
+   here: the four modes below (1.47/3.97/4.97/7.97%) are a different rate ladder than the three
+   plans on /pricing (Core/Autonomous/Managed Billing) — left exactly as found. */
+
+const REG = {
+  screenTaxPerCg: 4800,                       // file 05 · BMC Geriatrics 2023
+  modes: [
+    {id:'you',  name:'You Run It',                       rate:0.0147, blurb:'You keep the wheel. The nine run underneath you.'},
+    {id:'it',   name:'It Runs For You',                  rate:0.0397, blurb:'The work is delivered. Your team reviews finished output.'},
+    {id:'key',  name:'We Run Key Functions With You',    rate:0.0497, blurb:'Our people run scheduling and billing — the functions that decide whether earned money arrives — behind a 99% clean-claim rate.'},
+    {id:'all',  name:'We Run It All With You',           rate:0.0797, blurb:'Everything under one accountable boundary. The most anyone ever pays.'}
+  ],
+  bands: [ [15000,'tasha'], [50000,'jackie'], [200000,'denise'] ],  // ruling 17 Aug 2026 — revenue bands; >200K band pending
+  multiples: [4,6],                            // file 04 · Outcome 3 proof points
+  assume: { officeLoaded:48000, directCareShare:0.66, otherOpexShare:0.05,
+            integLow:0.05, integHigh:0.15,
+            recoverScreen:0.65, recoverSoftware:0.45, recoverOffice:0.10 }
+};
+
+const FUNCS = [
+  {n:1, name:'Scheduling & payroll', sub:'Shifts filled, callouts covered, everyone paid right'},
+  {n:2, name:'Compliance', sub:'Licenses, EVV, audits, the surveyor'},
+  {n:3, name:'Billing & claims', sub:'Claims out clean, money actually arriving'},
+  {n:4, name:'Communication', sub:'Families, caregivers, case managers — without your personal cell'},
+  {n:5, name:'Documentation', sub:'From the referral call to the visit note to the chart'},
+  {n:6, name:'Being findable & provable', sub:'Referral sources, health plans, and applicants can find you and check you', cap:true},
+  {n:7, name:'Hiring caregivers', sub:'From application to first shift'},
+  {n:8, name:'Keeping caregivers', sub:'Past day 100, and past the next fifty-cent offer'},
+  {n:9, name:'Training caregivers', sub:'Mandated, specialized, on time'}
+];
+const SYS = [['paper','Paper & phone',100],['sheets','Spreadsheets',80],['tools','Tools that don’t talk to each other',65],['one','One connected system',35],['svc','Someone runs it for me',15]];
+const FEEL = [['ok','Under control',15],['worry','Worrying me',55],['drown','Drowning me',95]];
+const CAPQ = [['no','No',85],['partly','Partly',55],['yes','Yes, today',20]];
+const DRAINWHY = {
+  Economic:'Money leaving through admin time, denials, and the software carrying both.',
+  Talent:'Caregivers hard to find and harder to keep.',
+  Time:'How much of the business still runs through your hands.',
+  Stability:'What an auditor, a surveyor, or a buyer would find in the gaps.',
+  Energy:'What the daily firefighting costs the people doing it — starting with you.'
+};
+
+const STATES = 'AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY DC'.split(' ');
+document.getElementById('state').innerHTML = '<option value="">Select…</option>' + STATES.map(s=>`<option>${s}</option>`).join('');
+
+/* ---------- plan context (?plan=core|autonomous|managed-billing from /pricing) ---------- */
+const PLAN_NAMES = {core:'CareBravo Core', autonomous:'CareBravo Autonomous', 'managed-billing':'Managed Billing'};
+const incomingPlan = (new URLSearchParams(location.search).get('plan') || '').trim().toLowerCase();
+const validIncomingPlan = PLAN_NAMES.hasOwnProperty(incomingPlan) ? incomingPlan : null;
+if (validIncomingPlan) {
+  const noteHtml = `You started from <b>${PLAN_NAMES[validIncomingPlan]}</b> — answer below, and your map will confirm it's the right fit, or show you what it actually points to instead.`;
+  ['planNote', 'planNoteStep1'].forEach(id => {
+    const note = document.getElementById(id);
+    note.style.display = 'block';
+    note.innerHTML = noteHtml;
+  });
+}
+
+/* ---------- build the nine-function form ---------- */
+const fnlist = document.getElementById('fnlist');
+fnlist.innerHTML = FUNCS.map(f=>{
+  if(f.cap) return `
+  <div class="fn"><h3>${f.n} · ${f.name}</h3><div class="sub">${f.sub}</div>
+    <div class="cap" style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin-bottom:6px;">If a referral source or a health plan asked you to prove your results tomorrow — could you?</div>
+    <div class="seg warn">${CAPQ.map(o=>`<label><input type="radio" name="cap6" value="${o[0]}">${o[1]}</label>`).join('')}</div>
+  </div>`;
+  return `
+  <div class="fn"><h3>${f.n} · ${f.name}</h3><div class="sub">${f.sub}</div>
+    <div class="segrow">
+      <div><div class="cap">Where it lives</div>
+        <div class="seg">${SYS.map(o=>`<label><input type="radio" name="sys${f.n}" value="${o[0]}">${o[1]}</label>`).join('')}</div></div>
+      <div><div class="cap">How it feels</div>
+        <div class="seg warn">${FEEL.map(o=>`<label><input type="radio" name="feel${f.n}" value="${o[0]}">${o[1]}</label>`).join('')}</div></div>
+    </div>
+  </div>`;
+}).join('');
+
+/* ---------- navigation ----------
+   Step visibility is driven by the native `hidden` attribute, not only a CSS
+   class — this is deliberate and robust against style.css not loading, being
+   cached stale, or a competing rule overriding a class-based display:none
+   somewhere else in the sheet. `hidden` degrades to display:none via the
+   browser's own UA stylesheet regardless of what site CSS does or doesn't
+   load, so exactly one step can ever be visible at a time. The 'active'
+   class is kept only to trigger the CSS entrance animation. */
+const show = id => {
+  document.querySelectorAll('.calc .screen').forEach(s => {
+    const on = s.id === id;
+    s.hidden = !on;
+    s.classList.toggle('active', on);
+  });
+  window.scrollTo({top:0});
+};
+show('intro'); // authoritative initial state on every load/refresh, independent of the HTML's own `hidden` attributes
+document.getElementById('startBtn').onclick = ()=>show('step1');
+if (validIncomingPlan) show('step1'); // a pricing CTA means "start", not "read the intro again"
+const num = id => { const raw=(document.getElementById(id).value||'').replace(/[^0-9.]/g,''); return raw===''?NaN:parseFloat(raw); };
+function markMiss(el,on){ el.closest('.field, .fn')?.classList.toggle('miss', on); }
+document.getElementById('f1').addEventListener('submit', e=>{
+  e.preventDefault();
+  const checks = [
+    ['agency', v=>v.trim().length>0],
+    ['state',  v=>v!==''],
+    ['rev',    ()=>num('rev')>0],
+    ['cg',     ()=>num('cg')>=1],
+    ['office', ()=>!isNaN(num('office'))],
+    ['sw',     ()=>!isNaN(num('sw'))]
+  ];
+  let first=null;
+  for(const [id,ok] of checks){ const el=document.getElementById(id); const good=ok(el.value); markMiss(el,!good); if(!good && !first) first=el; }
+  const err=document.getElementById('err1');
+  if(first){ err.textContent='One thing missing — the highlighted field above.'; err.style.display='block';
+    first.scrollIntoView({behavior:'smooth', block:'center'}); first.focus({preventScroll:true}); return; }
+  err.style.display='none'; show('step2');
+});
+const oh = document.getElementById('ohours');
+oh.oninput = ()=>document.getElementById('ohoursOut').textContent = oh.value+' hrs';
+
+let R = null;   // the computed record
+
+document.getElementById('f2').addEventListener('submit', e=>{
+  e.preventDefault();
+  let firstCard=null, missing=0;
+  for(const f of FUNCS){
+    const names = f.cap ? ['cap6'] : ['sys'+f.n,'feel'+f.n];
+    const bad = names.some(n=>!document.querySelector(`input[name="${n}"]:checked`));
+    const card = document.querySelector(`input[name="${names[0]}"]`)?.closest('.fn');
+    card?.classList.toggle('miss', bad);
+    if(bad){ missing++; if(!firstCard) firstCard=card; }
+  }
+  const err=document.getElementById('err2');
+  if(firstCard){ err.textContent = missing===1 ? 'One function above still needs an answer — it’s outlined in red.' : missing+' functions above still need an answer — they’re outlined in red.';
+    err.style.display='block'; firstCard.scrollIntoView({behavior:'smooth', block:'center'}); return; }
+  err.style.display='none'; R = compute(); render(R); show('report');
+});
+
+/* ---------- computation ---------- */
+const val = (n,list)=>list.find(o=>o[0]===n)[2];
+const pick = name=>{ const el=document.querySelector(`input[name="${name}"]:checked`); return el?el.value:null; };
+const fmt = n=>'$'+Math.round(n).toLocaleString('en-US');
+const fmtS = n=>(n<0?'−$':'$')+Math.abs(Math.round(n)).toLocaleString('en-US');
+
+function compute(){
+  const A = REG.assume;
+  const agency = document.getElementById('agency').value.trim();
+  const state  = document.getElementById('state').value;
+  const revM   = num('rev')||0;
+  const cg     = num('cg')||0;
+  const office = num('office')||0;
+  const swM    = num('sw')||0;
+  const ownerH = +oh.value;
+
+  // pain per function (Outcome 6 = capability, excluded from the pain average)
+  const pain = {};
+  for(const f of FUNCS){ if(f.cap) continue;
+    pain[f.n] = 0.45*val(pick('sys'+f.n),SYS) + 0.55*val(pick('feel'+f.n),FEEL); }
+  const cap6 = val(pick('cap6'),CAPQ);
+  const cap6ans = pick('cap6');
+  const painVals = Object.values(pain);
+  const avgPain = painVals.reduce((a,b)=>a+b,0)/painVals.length;
+  const ownerLoad = Math.min(100, ownerH/50*100);
+
+  // drains (weights per file 04 drain↔outcome mapping; modelled)
+  const drains = {
+    Economic:  0.30*pain[3]+0.25*pain[1]+0.15*pain[5]+0.10*pain[9]+0.20*cap6,
+    Talent:    0.40*pain[7]+0.40*pain[8]+0.20*pain[9],
+    Time:      0.30*pain[1]+0.25*pain[4]+0.20*avgPain+0.25*ownerLoad,
+    Stability: 0.35*pain[2]+0.30*pain[5]+0.25*cap6+0.10*pain[9],
+    Energy:    0.30*pain[4]+0.30*pain[8]+0.15*avgPain+0.25*ownerLoad
+  };
+
+  // top outcomes by pain (O6 never competes on pain)
+  const ranked = Object.entries(pain).sort((a,b)=>b[1]-a[1]).map(e=>+e[0]);
+  const top = ranked[0], second = ranked[1];
+
+  // money
+  const annualRev = revM*12;
+  const screenTax = cg*REG.screenTaxPerCg;
+  const swAnnual  = swM*12;
+  const officeCost= office*A.officeLoaded;
+  const ttaxLow  = screenTax + swAnnual + A.integLow*officeCost;
+  const ttaxHigh = screenTax + swAnnual + A.integHigh*officeCost;
+  const ebitda = annualRev*(1-A.directCareShare-A.otherOpexShare) - officeCost - swAnnual;
+  const futureA = ebitda - 0.10*annualRev;
+
+  // mode diagnosis (never sold up; honest downgrade when billing is clean)
+  const p1=pain[1], p3=pain[3];
+  let modeId, modeNote='';
+  if (p3>=62 || (p1>=62 && p3>=45)) {
+    modeId = (avgPain>=62 && ownerLoad>=55) ? 'all' : 'key';
+  } else if (avgPain>=38) { modeId='it'; } else { modeId='you'; }
+  if (p3<35 && (modeId==='key'||modeId==='all')) { modeId='it';
+    modeNote='One honest note: your billing looks clean. The modes where our people take over billing would be the wrong answer for you, so your map does not point there.'; }
+  if (p3<35 && modeId==='it' && !modeNote)
+    modeNote='One honest note: your billing looks clean. Nothing in this report should move you to a higher mode on billing grounds.';
+  const mode = REG.modes.find(m=>m.id===modeId);
+
+  const recover = A.recoverScreen*screenTax + A.recoverSoftware*swAnnual + A.recoverOffice*officeCost;
+  const modeFee = mode.rate * 0.90*annualRev;   // fee on post-cut billed revenue
+  const futureB = futureA + recover - modeFee;
+  const delta = futureB - futureA;
+  const gapLow = Math.max(0,delta)*REG.multiples[0], gapHigh = Math.max(0,delta)*REG.multiples[1];
+
+  // persona (ruling 17 Aug 2026: monthly billed revenue)
+  let persona = 'denise_plus';
+  for(const [cap,name] of REG.bands){ if(revM < cap){ persona=name; break; } }
+
+  return { agency,state,revM,cg,office,swM,ownerH, pain,cap6,cap6ans,avgPain,ownerLoad,
+           drains,top,second, annualRev,screenTax,swAnnual,officeCost,ttaxLow,ttaxHigh,
+           ebitda,futureA,futureB,recover,modeFee,delta,gapLow,gapHigh, modeId,mode,modeNote, persona,
+           methodology_version:'0.9-draft' };
+}
+
+/* ---------- render ---------- */
+const FNAME = Object.fromEntries(FUNCS.map(f=>[f.n,f.name]));
+
+function render(r){
+  document.getElementById('rAgency').textContent = r.agency;
+  document.getElementById('rState').textContent = r.state;
+  document.getElementById('rDate').textContent = new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+  document.getElementById('rHeadline').textContent = 'The report '+r.agency+' has never been able to run.';
+
+  // drain bars — dollar-scaled where the drain is economic; index elsewhere
+  const bars = Object.entries(r.drains).map(([k,v])=>{
+    const amt = k==='Economic' ? fmt(r.ttaxLow)+'–'+fmt(r.ttaxHigh)+' / yr' : Math.round(v)+' / 100';
+    return `<div class="drainrow"><div class="top"><b>${k} Drain</b><span class="amt">${amt}</span></div>
+      <div class="bar"><i data-w="${Math.round(v)}"></i></div>
+      <div class="why">${DRAINWHY[k]}</div></div>`; }).join('');
+  document.getElementById('drainbars').innerHTML = bars;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    document.querySelectorAll('.bar i').forEach(b=>b.style.width=b.dataset.w+'%'); }));
+
+  document.getElementById('hardline').innerHTML =
+    `Your map is darkest at <b>${FNAME[r.top]}</b>, with <b>${FNAME[r.second]}</b> close behind. That is not two problems — it is one drain, and those are the two places it surfaces most in your week. You reported <b>${r.ownerH} hours a week</b> of the business still running through your own hands — the number a buyer would ask about first.`;
+
+  if(r.cap6ans!=='yes'){
+    const o6 = document.getElementById('o6line'); o6.style.display='block';
+    o6.innerHTML = `One more finding, off to the side: if a referral source or a health plan asked you to prove your results tomorrow, you answered <b>${r.cap6ans==='no'?'no':'partly'}</b>. That is not a pain you feel on a Tuesday — which is exactly why it goes unfixed. It has its own walkthrough at the end.`;
+  }
+
+  // money
+  document.getElementById('vScreen').textContent = fmt(r.screenTax)+' / yr';
+  document.getElementById('vTtax').textContent = fmt(r.ttaxLow)+'–'+fmt(r.ttaxHigh)+' / yr';
+  document.getElementById('vEbitda').textContent = fmtS(r.ebitda);
+  document.getElementById('vFutA').textContent = fmtS(r.futureA);
+  document.getElementById('vFutB').textContent = fmtS(r.futureB);
+  document.getElementById('vGap').textContent = fmt(r.gapLow)+'–'+fmt(r.gapHigh);
+
+  // modes
+  document.getElementById('modeCards').innerHTML = REG.modes.map(m=>`
+    <div class="mode ${m.id===r.modeId?'rec':''}">${m.id===r.modeId?'<span class="pick">Your map points here</span>':''}
+      <h4>${m.name}</h4><div class="rate">${(m.rate*100).toFixed(2)}% <small>of billed revenue</small></div><p>${m.blurb}</p></div>`).join('');
+  document.getElementById('modeNote').textContent = r.modeNote;
+
+  // plan
+  const parallelFns = (r.modeId==='key'||r.modeId==='all') ? `${FNAME[r.top]} and ${FNAME[r.second]}` : FNAME[r.top];
+  document.getElementById('planBox').innerHTML = `
+    <div class="wk"><b>Weeks 1–2 · Parallel</b><p>${parallelFns} run beside your current setup — your real data, your real caregivers and clients, both outputs side by side. Nothing moves. That is the Parallel Promise™: the transition is on a verification standard, not a timeline. If anything is not clean at the end of week two, it extends.</p></div>
+    <div class="wk"><b>Week 3 · Verify &amp; switch</b><p>You compare the outputs yourself and sign off line by line. Only what you have verified switches over. Your old setup stays untouched until you say so.</p></div>
+    <div class="wk"><b>Week 4 · Widen</b><p>The next function on your map (${FNAME[r.second]}) enters parallel the same way, and you see your first weekly report — the same numbers as this page, live, every week, with your name on it.</p></div>`;
+
+  // methodology
+  const A = REG.assume;
+  document.getElementById('methodBox').innerHTML = `
+    <b>Methodology v0.9-draft — every constant is a stated assumption, pending CFO/CPA sign-off.</b><br><br>
+    Screen time: ${r.cg} caregivers × $${REG.screenTaxPerCg.toLocaleString()} / yr (BMC Geriatrics, Ausserhofer et al., 2023 — up to 8 hrs/week each).<br>
+    Disconnected-systems cost: screen time + software ($${r.swAnnual.toLocaleString()}/yr) + ${A.integLow*100}–${A.integHigh*100}% of office payroll (office payroll assumed $${A.officeLoaded.toLocaleString()} loaded per person × ${r.office}).<br>
+    EBITDA estimate: annual billed revenue ${fmt(r.annualRev)} − direct care (assumed ${A.directCareShare*100}%) − office payroll − software − other operating (assumed ${A.otherOpexShare*100}%).<br>
+    Future A: EBITDA − 10% of revenue (the rate cut lands, costs stay).<br>
+    Future B: Future A + recovered admin (${A.recoverScreen*100}% of screen time, ${A.recoverSoftware*100}% of software, ${A.recoverOffice*100}% of office overhead) − the ${(r.mode.rate*100).toFixed(2)}% delivery fee on post-cut billed revenue.<br>
+    Value line: the yearly difference × 4–6, the range agencies in this industry change hands at.<br>
+    Your drain map: your nine answers, weighted by which drain each function feeds. “Being findable &amp; provable” is scored on capability, never on pain, and is never averaged into the pain score.`;
+
+  R.calcPayload = buildPayload(r);
+}
+
+/* ---------- email gate = the identity handoff ---------- */
+document.getElementById('gateBtn').onclick = async ()=>{
+  const name=document.getElementById('gName').value.trim();
+  const email=document.getElementById('gEmail').value.trim();
+  const ok = name && /.+@.+\..+/.test(email);
+  const gateErr = document.getElementById('gateErr');
+  gateErr.style.display = ok?'none':'block';
+  if(!ok) return;
+
+  R.contact_name=name; R.email=email; R.calculator_completed_at=new Date().toISOString();
+  const payload = buildPayload(R);
+
+  const gateBtn = document.getElementById('gateBtn');
+  const originalLabel = gateBtn.textContent;
+  gateBtn.disabled = true;
+  gateBtn.textContent = 'Sending your report…';
+  gateErr.style.display = 'none';
+
+  // Primary: Supabase + emailed report via the Netlify Function (browser never talks to
+  // Supabase or Mailjet directly — same pattern as /pricing's plan-start submission).
+  try {
+    const res = await fetch('/.netlify/functions/submit-caredrain-calculator', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    let resJson = null;
+    try { resJson = await res.json(); } catch (parseErr) { resJson = null; } // non-JSON = function not deployed yet
+
+    if (resJson === null) {
+      // Fallback: function isn't live yet — submit to the Netlify Forms-detected form above,
+      // same graceful-degradation pattern already used by /pricing's plan-start modal.
+      await fetch('/calculate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(Object.assign({ 'form-name': 'caredrain-calculator' }, payload)).toString()
+      }).catch(()=>{});
+    } else if (!res.ok) {
+      gateBtn.disabled = false;
+      gateBtn.textContent = originalLabel;
+      gateErr.textContent = resJson.error || 'Something went wrong sending your report. Please try again.';
+      gateErr.style.display = 'block';
+      return;
+    }
+  } catch (networkErr) {
+    gateBtn.disabled = false;
+    gateBtn.textContent = originalLabel;
+    gateErr.textContent = 'Something went wrong. Please check your connection and try again.';
+    gateErr.style.display = 'block';
+    return;
+  }
+
+  // Report unlocks only after the server confirms the save (+ email, when configured) succeeded.
+  document.getElementById('gate').style.display='none';
+  document.getElementById('locked').style.display='block';
+};
+
+/* ---------- Drain Map payload — sent to the Netlify Function, mirrors the report on screen ----------
+   Field set is UNCHANGED from the working staging schema — no new Supabase column is assumed
+   to exist. The incoming ?plan= is carried in the existing first_touch_source text field
+   (safe: it's a value change on an existing column, not a schema change) so it's still visible
+   per-submission without risking an insert failure against a table that may not have a
+   dedicated plan column yet. A previous pass added a `source_plan` key here — removed, because
+   that key has no confirmed matching column and Supabase/PostgREST rejects the whole insert if
+   the payload includes an unrecognized column. See the report for what a real dedicated column
+   would need. */
+function buildPayload(r){
+  return {
+    first_touch_source: validIncomingPlan ? ('pricing:'+validIncomingPlan) : '(direct)',
+    source_demo:'(from landing)',
+    agency_name:r.agency, state:r.state,
+    monthly_billed:r.revM, caregiver_count:r.cg,
+    persona_tier:r.persona+' (RULING 17 Aug 2026: revenue bands — <15K tasha / 15–50K jackie / 50–200K denise / >200K band PENDING)',
+    drain_economic:Math.round(r.drains.Economic), drain_talent:Math.round(r.drains.Talent),
+    drain_time:Math.round(r.drains.Time), drain_stability:Math.round(r.drains.Stability),
+    drain_energy:Math.round(r.drains.Energy),
+    outcome_pain: Object.fromEntries(Object.entries(r.pain).map(([k,v])=>[k,Math.round(v)])),
+    capability_o6:r.cap6ans||null, owner_hours_week:r.ownerH,
+    top_outcome:r.top, second_outcome:r.second,
+    top_outcome_name:FNAME[r.top], second_outcome_name:FNAME[r.second],
+    screen_tax:Math.round(r.screenTax), ttax_low:Math.round(r.ttaxLow), ttax_high:Math.round(r.ttaxHigh),
+    ebitda_today:Math.round(r.ebitda), future_a:Math.round(r.futureA), future_b:Math.round(r.futureB),
+    value_gap_low:Math.round(r.gapLow), value_gap_high:Math.round(r.gapHigh),
+    recommended_mode:r.modeId, recommended_mode_name:r.mode.name, mode_rate:r.mode.rate, mode_basis:'billed',
+    plan_30day_id:'plan_'+Date.now(), methodology_version:r.methodology_version,
+    contact_name:r.contact_name||null, email:r.email||null,
+    calculator_completed_at:r.calculator_completed_at||null
+  };
+}
+document.addEventListener('change', e=>{ const c=e.target.closest('.field, .fn'); if(c) c.classList.remove('miss'); });
+document.addEventListener('input',  e=>{ const c=e.target.closest('.field'); if(c) c.classList.remove('miss'); });
+
+/* CTA click tracking — no-ops until gtag is added site-wide; kept guarded so it's harmless now
+   and forward-compatible with analytics later, consistent with every other V3 page today. */
+document.querySelectorAll('[data-cta]').forEach(el => {
+  el.addEventListener('click', () => { if (typeof gtag === 'function') gtag('event', 'cta_click', { label: el.dataset.cta }); });
+});
+</script>
+<script src="/js/main.js"></script>
+<script>
+/* main.js's navColour() toggles the white "on-dusk" nav text whenever scrollY===0, assuming
+   the top of every page is a dark hero image. This page has no dark hero at any of its four
+   screens (intro/step1/step2/report), and show() above resets scroll to top on every step
+   change — so without this override, the white nav text would go invisible against the light
+   background on every transition, not just on load. Force the readable "scrolled" nav state
+   permanently here; this listener is registered after main.js's, so it always runs second and
+   wins on every scroll tick. */
+(function () {
+  var nav = document.getElementById('nav');
+  if (!nav) return;
+  function lockReadable() {
+    nav.classList.remove('on-dusk');
+    nav.classList.add('scrolled');
+  }
+  lockReadable();
+  window.addEventListener('scroll', lockReadable, { passive: true });
+})();
+</script>
+</body>
+</html>

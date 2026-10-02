@@ -1,0 +1,40 @@
+/* tokens.css — shared design tokens (values only). Section 1 = caryfy.ai's own :root variables, unchanged.
+   Section 2 = the CareBravo owner-site temperature: the 15 Sep 2026 ruling is caryfy.ai's system with a warmer
+   temperature on carebravo.com. These overrides are the entire difference between the two sites.
+   NOTE FOR ABHAY: Section 1 was rebuilt from style.css because the tokens.css in carebravo-v2.zip did not decode
+   on our side. Replace Section 1 with your authoritative extraction; keep Section 2 verbatim and last. */
+
+/* 1 · caryfy.ai tokens, as extracted */
+:root{
+  --bg:#FFFFFF; --bg-2:#F5F5F3; --ink:#111111; --ink-2:#5C5C5C; --ink-3:#9A9A9A;
+  --rule:rgba(0,0,0,.1); --jade:#0F766E; --jade-soft:#E6F0EC;
+  --max:1360px; --gutter:clamp(20px,3.6vw,48px); --r:22px;
+  --sans:"Geist",system-ui,-apple-system,"Helvetica Neue",sans-serif;
+  --serif:"Instrument Serif",Georgia,serif;
+  --gold:linear-gradient(160deg,#F2C98A 0%,#C98F4A 30%,#5A3A1E 62%,#1E1712 100%);
+  --dusk:linear-gradient(165deg,#DCA96E 0%,#8A5A34 28%,#2C3742 60%,#0F1418 100%);
+  --shade:linear-gradient(160deg,#E9DFC9 0%,#8E9A6B 30%,#3F4A2E 62%,#151A11 100%);
+  --room:linear-gradient(170deg,#F0E4D2 0%,#C8A57A 35%,#6B4E36 70%,#221A14 100%);
+}
+
+/* 2 · carebravo.com temperature (ruled 15 Sep 2026; values from home v2 / pricing v3) */
+:root{
+  --bg:#FAF9F6;            /* warm paper, not white */
+  --bg-2:#F3F1EC;          /* warm grey for alternating sections */
+  --ink:#1A1A1A;           /* ink, not #111 */
+  --ink-2:#6B6B6B;
+  --rule:#ECEAE3;          /* warm hairline */
+  --rule-strong:#DDD9D2;
+}
+
+/* 3 · CareDrain™ report colors (added 19 Sep 2026, for /calculate).
+   Not new design — these are the exact colors already live in the
+   submit-caredrain-calculator.js report email (buildReportEmailHtml):
+   #A03421 for cost/drain figures, #1E6B45 for the "Future B" outcome,
+   #EFE9DA as the warm parchment card background. Ported here so the
+   on-site calculator and the emailed report match exactly. */
+:root{
+  --drain:#A03421;   /* cost / drain figures — matches the report email */
+  --ledger:#1E6B45;  /* positive-outcome figures — matches "Future B" in the report email */
+  --manila:#EFE9DA;  /* warm card background for findings/gate/plan blocks */
+}
